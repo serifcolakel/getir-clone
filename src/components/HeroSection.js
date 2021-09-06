@@ -88,7 +88,6 @@ export default function HeroSection() {
             Giriş yap veya kayıt ol
           </h4>
           <div className="grid gap-y-4">
-            {" "}
             <div className="flex gap-x-2">
               <ReactFlagsSelect
                 className="flag-select"
@@ -123,12 +122,19 @@ export default function HeroSection() {
               </label>
             </div>
             <button className="bg-brand-yellow transition-colors hover:bg-primary-brand-color hover:text-brand-yellow h-12 flex items-center justify-center rounded-md w-full text-sm font-semibold text-primary-brand-color">
-              Telefon ile Devam Et
+              <a href="https://getir.com/" target="_blank" rel="noreferrer">
+                Telefon ile Devam Et
+              </a>
             </button>
             <hr className="h-[1px] bg-gray-300 my-2" />
             <button className="bg-blue-50  text-blue-700 px-4 text-opacity-80 transition-colors hover:bg-blue-700 hover:text-white h-12 flex items-center  rounded-md w-full text-sm font-semibold">
               <FaFacebook size={24} className="m" />
-              <span className="mx-auto ">Facebook ile Devam Et</span>
+
+              <span className="mx-auto ">
+                <a href="https://getir.com/" target="_blank" rel="noreferrer">
+                  Facebook ile Devam Et
+                </a>
+              </span>
             </button>
           </div>
         </div>

@@ -14,6 +14,12 @@ export default function Campaings() {
             className="w-100 h-[200px] rounded-lg"
             src="https://cdn.getir.com/misc/611e55d33ea65bef40f9ba05_banner_tr_1629378026496.jpeg"
           />
+
+          <img
+            alt="noreferer"
+            className="w-100 h-[200px] rounded-lg"
+            src="https://cdn.getir.com/misc/6069cee3f7be2b6472dc8b5f_banner_tr_1629921878792.jpeg"
+          />
         </div>
       </div>
     </div>
