@@ -100,7 +100,7 @@ export default function Footer() {
               ))}
             </div>
             {content.map((x, i) => (
-              <div className="grid">
+              <div className="grid" key={i}>
                 <span className="font-normal text-xl	text-primary-brand-color">
                   {x.title}
                 </span>
@@ -126,7 +126,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <span className="font-normal	text-primary-brand-color">
+                  <span className="font-normal text-sm text-primary-brand-color">
                     Bilgi Toplumu Hizmetleri
                   </span>
                 </a>
