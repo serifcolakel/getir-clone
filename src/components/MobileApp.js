@@ -11,7 +11,7 @@ export default function MobileApp() {
               İstediğiniz ürünleri dakikalar içinde kapınıza <br />
               getirelim.
             </span>
-            <div class="grid pt-6 grid-flow-col grid-cols-3 gap-2">
+            <div className="grid pt-6 grid-flow-col grid-cols-3 gap-2">
               <div>
                 <a
                   href="https://itunes.apple.com/app/id995280265"
@@ -53,7 +53,7 @@ export default function MobileApp() {
           </div>
 
           <img
-            className="h-full self-end pt-6"
+            className="pt-6"
             alt="noreferrer"
             src="https://getir.com/_next/static/images/phoneLanding-88c033545710c4808054072689e187d7.png"
           />
