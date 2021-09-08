@@ -1003,7 +1003,7 @@ export default function Categories() {
     },
   ];
   return (
-    <div className="container pt-6 pb-6 max-w-screen-xl mx-auto flex flex-col ">
+    <div className="pt-6 pb-6 max-w-screen-xl mx-auto flex flex-col">
       <span className="text-sm font-semibold pb-1">Kategoriler</span>
       <div className="grid w-full grid-flow-col grid-cols-10 grid-rows-2 gap-1">
         {cats.map((x) => (

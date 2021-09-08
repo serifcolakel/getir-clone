@@ -131,7 +131,7 @@ export default function Favorites() {
                   <FiPlus />
                 </a>
               </div>
-              <a href="https://getir.com/">
+              <a href="https://getir.com/" target="_blank" rel="noreferrer">
                 <img
                   alt="noreferer"
                   className="w-30 h-[120px] cursor-pointer "
