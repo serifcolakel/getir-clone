@@ -1005,16 +1005,18 @@ export default function Categories() {
   return (
     <div className="pt-6 pb-6 max-w-screen-xl mx-auto flex flex-col">
       <span className="text-sm font-semibold pb-1">Kategoriler</span>
-      <div className="grid w-full grid-flow-col grid-cols-10 grid-rows-2 gap-1">
+      <div className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-10 gap-1">
         {cats.map((x) => (
           <a href="https://getir.com/" key={x.id}>
-            <div className="flex hover:text-primary-brand-color flex-col hover:bg-primary-brand-color-lights cursor-pointer p-4 justify-between items-center container w-27 h-[108px] ">
+            <div className="flex flex-col hover:text-primary-brand-color flex-col hover:bg-primary-brand-color-lights cursor-pointer p-4 justify-between items-center container w-27 h-[108px] ">
               <img
                 alt="noreferer"
                 className="w-12 h-12 rounded-lg border-2"
                 src={x.picURL}
               />
-              <p className="text-sm text-opacity-0 font-semibold">{x.name}</p>
+              <p className="text-sm truncate text-opacity-0 font-semibold">
+                {x.name}
+              </p>
             </div>
           </a>
         ))}
