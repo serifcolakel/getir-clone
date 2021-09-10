@@ -4,7 +4,7 @@ import { FaUserPlus } from "react-icons/fa";
 export default function Header() {
   return (
     <div className="sticky top-0 z-50 bg-brand-color">
-      <div className="container max-w-screen-xl mx-auto h-12 flex items-center justify-between">
+      <div className="container max-w-screen-xl mx-auto h-16 md:h-12 flex items-center justify-center md:justify-between">
         <a
           href="http://getir-clone-delta.vercel.app/"
           target="_blank"
@@ -16,7 +16,7 @@ export default function Header() {
           />
         </a>
 
-        <nav className="flex gap-x-8 text-sm font-semibold ">
+        <nav className="hidden md:flex gap-x-8 text-sm font-semibold ">
           <a
             href="https://react-icons.github.io/react-icons/search?q=user"
             className="flex gap-x-2 text-white text-opacity-80 transition-all hover:text-opacity-100"

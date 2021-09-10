@@ -26,15 +26,15 @@ export default function Cards() {
   return (
     <div className="bg-gray-background">
       <div className="container pt-6 pb-6 max-w-screen-xl mx-auto">
-        <div className="grid grid-flow-col grid-cols-3 grid-rows-1 gap-4 ">
+        <div className="grid grid-flow-row md:grid-cols-3 md:grid-rows-1 gap-4 ">
           {cards.map((item) => (
             <div
               key={item.id}
-              className="w-100 h-[350px] gap-y-1 rounded-2xl flex flex-col items-center justify-center bg-primary-white"
+              className="w-full md:w-100 h-[350px] gap-y-1 rounded-2xl flex flex-col items-center justify-center bg-primary-white"
             >
               <img
                 alt="noreferer"
-                className="w-[150px] h-[150px] mb-5 "
+                className="w-full md:w-[150px] h-[150px] mb-5 "
                 src={item.imgURL}
               />
               <h4 className="text-[18px] font-semibold text-primary-brand-color">

@@ -3,7 +3,7 @@ import Slider from "react-slick";
 export default function Campaings() {
   const settings = {
     dots: false,
-    infinite: false,
+    infinite: true,
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,
@@ -25,6 +25,8 @@ export default function Campaings() {
         breakpoint: 768,
         settings: {
           slidesToShow: 1,
+          autoplay: true,
+          autoplaySpeed: 3000,
         },
       },
     ],
@@ -63,13 +65,15 @@ export default function Campaings() {
   ];
   return (
     <div className="bg-gray-background">
-      <div className=" max-w-screen-xl mx-auto flex flex-col">
-        <span className="text-sm font-semibold pb-4">Kampanyalar</span>
+      <div className=" max-w-screen-xl mx-auto flex flex-col overflow-x-hidden">
+        <span className="hidden md:block text-sm font-semibold pb-4">
+          Kampanyalar
+        </span>
 
-        <Slider {...settings}>
+        <Slider className="-mx-2" {...settings}>
           {camps.map((x, i) => (
-            <div key={i} className="md:pr-6 xl:pr-6">
-              <img alt="noreferer" className="rounded-lg" src={x.imgUrl} />
+            <div key={i} className="md:pr-6">
+              <img alt="noreferer" className="md:rounded-lg" src={x.imgUrl} />
             </div>
           ))}
         </Slider>
