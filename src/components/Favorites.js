@@ -8,7 +8,7 @@ export default function Favorites() {
     axios
       .get("https://getir-api-clone.herokuapp.com/api/favorite")
       .then((res) => setFavsList(res.data));
-  }, []);
+  }, [favsList]);
   return (
     <div className="bg-gray-background">
       <div className="container max-w-screen-xl mx-auto flex flex-col">
