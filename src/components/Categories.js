@@ -2,17 +2,17 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 
 export default function Categories() {
-  const [categories, setCategories] = useState([]);
+  const [categoriesItems, setCategoriesItems] = useState([]);
   useEffect(() => {
     axios
       .get("https://getir-api-clone.herokuapp.com/api/categories")
-      .then((res) => setCategories(res.data));
+      .then((res) => setCategoriesItems(res.data));
   }, []);
   return (
     <div className="md:pt-6 md:pb-6 max-w-screen-xl mx-auto flex flex-col p-2">
       <span className="text-sm font-semibold md:pb-1">Kategoriler</span>
       <div className="grid grid-cols-4 max-w-screen-xl md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-10">
-        {categories.map((x) => (
+        {categoriesItems.map((x) => (
           <a href="https://getir.com/" key={x.id}>
             <div className="flex flex-col gap-y-2 hover:text-primary-brand-color hover:bg-primary-brand-color-lights cursor-pointer md:p-4 justify-between items-center container w-full md:w-27 h-auto md:h-[108px] ">
               <img

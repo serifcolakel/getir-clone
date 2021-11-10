@@ -13,6 +13,7 @@ module.exports = {
         "primary-brand-color": "#5d3ebc",
         "primary-white": "#FFFFFF",
         "secondary-brand-color": "#7849f7",
+        "sepet-border-renk": "#ffd300",
       },
       backgroundImage: (theme) => ({
         "mobile-app":

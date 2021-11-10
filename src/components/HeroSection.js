@@ -103,7 +103,7 @@ export default function HeroSection() {
               />
               <label
                 htmlFor="phone"
-                className="flex group w-full relative block cursor-pointer "
+                className="flex group w-full relative cursor-pointer "
               >
                 <input
                   inputMode="numeric"
