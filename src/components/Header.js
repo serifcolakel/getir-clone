@@ -1,7 +1,11 @@
 import { BiGlobe } from "react-icons/bi";
-import { FaUserAlt } from "react-icons/fa";
-import { FaUserPlus } from "react-icons/fa";
+import { FaUserAlt, FaUserPlus } from "react-icons/fa";
+import { useContext } from "react";
+import { FavoritesItem } from "../App";
+import { RiShoppingBasketFill } from "react-icons/ri";
 export default function Header() {
+  const fav = useContext(FavoritesItem);
+  const { basket } = fav;
   return (
     <div className="sticky top-0 z-50 bg-brand-color">
       <div className="container max-w-screen-xl mx-auto h-16 md:h-12 flex items-center justify-center md:justify-between">
@@ -17,6 +21,13 @@ export default function Header() {
         </a>
 
         <nav className="hidden md:flex gap-x-8 text-sm font-semibold ">
+          <a
+            href="https://react-icons.github.io/react-icons/search?q=user"
+            className="flex gap-x-2 text-white text-opacity-80 transition-all hover:text-opacity-100"
+          >
+            <RiShoppingBasketFill size={20} />
+            Sepetim ({basket.reduce((a, b) => a + b.count, 0)})
+          </a>
           <a
             href="https://react-icons.github.io/react-icons/search?q=user"
             className="flex gap-x-2 text-white text-opacity-80 transition-all hover:text-opacity-100"

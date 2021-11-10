@@ -1,13 +1,10 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useContext } from "react";
+import { FavoritesItem } from "../App";
 
 export default function Categories() {
-  const [categoriesItems, setCategoriesItems] = useState([]);
-  useEffect(() => {
-    axios
-      .get("https://getir-api-clone.herokuapp.com/api/categories")
-      .then((res) => setCategoriesItems(res.data));
-  }, []);
+  const cat = useContext(FavoritesItem);
+  const { categoriesItems } = cat;
+
   return (
     <div className="md:pt-6 md:pb-6 max-w-screen-xl mx-auto flex flex-col p-2">
       <span className="text-sm font-semibold md:pb-1">Kategoriler</span>

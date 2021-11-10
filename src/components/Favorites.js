@@ -1,40 +1,11 @@
 import { FiPlus, FiMinus } from "react-icons/fi";
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React, { useContext } from "react";
+import { FavoritesItem } from "../App";
 
 export default function Favorites() {
-  const [favsList, setFavsList] = useState([]);
-  const [basket, setBasket] = useState([]);
-  const [totalPrice, setTotalPrice] = useState(0);
+  const fav = useContext(FavoritesItem);
+  const { favsList, deleteFromBasket, addToBasket, totalPrice, basket } = fav;
 
-  const addToBasket = (favori) => {
-    if (!basket.includes(favori)) {
-      setBasket([...basket, favori]);
-      setTotalPrice(totalPrice + favori.price);
-      favori.count++;
-    } else {
-      favori.count++;
-      setTotalPrice(totalPrice + favori.price);
-    }
-  };
-  const deleteFromBasket = (favori) => {
-    if (!basket.includes(favori)) {
-      setBasket(basket.filter((item) => item.id !== favori.id));
-      setTotalPrice(totalPrice - favori.price);
-      favori.count--;
-    } else if (favori.count === 1) {
-      setTotalPrice(totalPrice - favori.price);
-      setBasket(basket.filter((item) => item.id !== favori.id));
-    } else {
-      favori.count--;
-      setTotalPrice(totalPrice - favori.price);
-    }
-  };
-  useEffect(() => {
-    axios
-      .get("https://getir-api-clone.herokuapp.com/api/favorite")
-      .then((res) => setFavsList(res.data));
-  }, []);
   return (
     <div className="bg-gray-background">
       <div className="container max-w-screen-xl mx-auto flex flex-col">
