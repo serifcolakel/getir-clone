@@ -1,11 +1,11 @@
 import { BiGlobe } from "react-icons/bi";
 import { FaUserAlt, FaUserPlus } from "react-icons/fa";
-import { useContext } from "react";
-import { FavoritesItem } from "../App";
 import { RiShoppingBasketFill } from "react-icons/ri";
+import { useSelector } from "react-redux";
+
 export default function Header() {
-  const fav = useContext(FavoritesItem);
-  const { basket } = fav;
+  const state = useSelector((state) => state);
+  const basket = state.context.basket;
   return (
     <div className="sticky top-0 z-50 bg-brand-color">
       <div className="container max-w-screen-xl mx-auto h-16 md:h-12 flex items-center justify-center md:justify-between">

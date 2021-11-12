@@ -1,10 +1,14 @@
 import { FiPlus, FiMinus } from "react-icons/fi";
-import React, { useContext } from "react";
-import { FavoritesItem } from "../App";
+import React from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { contextActions } from "store/context";
 
 export default function Favorites() {
-  const fav = useContext(FavoritesItem);
-  const { favsList, deleteFromBasket, addToBasket, totalPrice, basket } = fav;
+  const state = useSelector((state) => state);
+  const dispatch = useDispatch();
+
+  const basket = state.context.basket;
+  const favsList = state.context.favorites;
 
   return (
     <div className="bg-gray-background">
@@ -17,7 +21,9 @@ export default function Favorites() {
               className="relative flex flex-col bg-primary-white justify-center items-center border-b border-r border-opacity-30  md:p-3 w-full md:w-30"
             >
               <div
-                onClick={() => addToBasket(items)}
+                onClick={() =>
+                  dispatch(contextActions.addToBasket({ id: items.id }))
+                }
                 className="flex absolute w-9 h-9 top-5 right-5 font-xl justify-center text-primary-brand-color items-center rounded-lg border z-10 bg-primary-white cursor-pointer"
               >
                 <button>
@@ -73,65 +79,73 @@ export default function Favorites() {
                 : "grid grid-cols-2 md:grid-cols-4 xl:grid:cols-10 grid-row-2 border-2 border-sepet-border-renk rounded-lg"
             }
           >
-            {basket.map((items) => (
-              <div
-                key={items.id}
-                className="relative flex flex-col bg-primary-white justify-center items-center border-b border-r border-opacity-30  md:p-3 w-full md:w-30"
-              >
-                <div className="flex flex-row gap-x-2 absolute top-5 right-5 justify-end">
-                  <div
-                    onClick={() => deleteFromBasket(items)}
-                    className="flex  w-9 h-9 font-xl justify-center text-primary-brand-color items-center rounded-lg border z-10 bg-primary-white cursor-pointer"
-                  >
-                    <button>
-                      <FiMinus />
-                    </button>
-                  </div>
-                  <div className="flex w-9 h-9 justify-center items-center   text-primary-brand-color  rounded-lg border z-10 bg-primary-white cursor-pointer">
-                    {items.count}
-                  </div>
-                  <div
-                    onClick={() => addToBasket(items)}
-                    className="flex  w-9 h-9  font-xl justify-center text-primary-brand-color items-center rounded-lg border z-10 bg-primary-white cursor-pointer"
-                  >
-                    <button>
-                      <FiPlus />
-                    </button>
-                  </div>
-                </div>
-                <a
-                  href="https://github.com/serifcolakel"
-                  target="_blank"
-                  rel="noreferrer"
+            {basket.map((items) => {
+              return (
+                <div
+                  key={items.id}
+                  className="relative flex flex-col bg-primary-white justify-center items-center border-b border-r border-opacity-30  md:p-3 w-full md:w-30"
                 >
-                  <img
-                    alt="noreferer"
-                    className="w-30 h-[120px] cursor-pointer "
-                    src={items.url}
-                  />
-                </a>
-                <div className="flex flex-col items-center bg-primary-white w-full md:w-[120px]">
-                  <p className="text-sm text-primary-brand-color font-semibold">
-                    {"₺" + items.price}
-                  </p>
-                  <p className="text-sm  text-center font-semibold">
-                    {items.name}
-                  </p>
-                  <p className="text-sm text-brand-gray text-center font-semibold">
-                    {items.unit}
-                  </p>
+                  <div className="flex flex-row gap-x-2 absolute top-5 right-5 justify-end">
+                    <div
+                      onClick={() =>
+                        dispatch(
+                          contextActions.deleteFromBasket({ id: items.id })
+                        )
+                      }
+                      className="flex  w-9 h-9 font-xl justify-center text-primary-brand-color items-center rounded-lg border z-10 bg-primary-white cursor-pointer"
+                    >
+                      <button>
+                        <FiMinus />
+                      </button>
+                    </div>
+                    <div className="flex w-9 h-9 justify-center items-center   text-primary-brand-color  rounded-lg border z-10 bg-primary-white cursor-pointer">
+                      {items.count}
+                    </div>
+                    <div
+                      onClick={() =>
+                        dispatch(contextActions.addToBasket({ id: items.id }))
+                      }
+                      className="flex  w-9 h-9  font-xl justify-center text-primary-brand-color items-center rounded-lg border z-10 bg-primary-white cursor-pointer"
+                    >
+                      <button>
+                        <FiPlus />
+                      </button>
+                    </div>
+                  </div>
+                  <a
+                    href="https://github.com/serifcolakel"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <img
+                      alt="noreferer"
+                      className="w-30 h-[120px] cursor-pointer "
+                      src={items.url || "https://via.placeholder.com/150"}
+                    />
+                  </a>
+                  <div className="flex flex-col items-center bg-primary-white w-full md:w-[120px]">
+                    <p className="text-sm text-primary-brand-color font-semibold">
+                      {"₺" + items.price}
+                    </p>
+                    <p className="text-sm  text-center font-semibold">
+                      {items.name}
+                    </p>
+                    <p className="text-sm text-brand-gray text-center font-semibold">
+                      {items.unit}
+                    </p>
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         )}
 
         <div className="flex justify-center items-center mt-4 text-xl">
           <p className=" text-primary-brand-color font-semibold">
-            Total Price :
-            {totalPrice.toFixed(2) < 0
-              ? " ₺  " + 0
-              : " ₺  " + totalPrice.toFixed(2)}
+            {"₺" +
+              parseFloat(
+                basket.reduce((a, b) => a + b.price * b.count, 0)
+              ).toFixed(2)}
           </p>
         </div>
       </div>

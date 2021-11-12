@@ -1,9 +1,10 @@
-import React, { useContext } from "react";
-import { FavoritesItem } from "../App";
+import React from "react";
+import { useSelector } from "react-redux";
 
 export default function Categories() {
-  const cat = useContext(FavoritesItem);
-  const { categoriesItems } = cat;
+  const state = useSelector((state) => state);
+
+  const categoriesItems = state.context.categories;
 
   return (
     <div className="md:pt-6 md:pb-6 max-w-screen-xl mx-auto flex flex-col p-2">
