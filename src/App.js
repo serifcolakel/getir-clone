@@ -33,7 +33,6 @@ function App() {
       <Favorites />
       <MobileApp />
       <Cards />
-      ""
       <Footer />
     </>
   );
