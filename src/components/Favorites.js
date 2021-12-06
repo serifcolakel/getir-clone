@@ -8,8 +8,10 @@ export default function Favorites() {
   const dispatch = useDispatch();
 
   const basket = state.context.basket;
-  const favsList = state.context.favorites;
 
+  const favsList = state.context.favorites;
+  console.log(basket);
+  console.log(favsList);
   return (
     <div className="bg-gray-background">
       <div className="container max-w-screen-xl mx-auto flex flex-col">

@@ -192,8 +192,6 @@ function Mobile() {
                 </a>
               ))}
           </Transition>
-
-          <p></p>
         </div>
       ))}
     </>
