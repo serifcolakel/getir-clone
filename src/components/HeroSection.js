@@ -1,8 +1,8 @@
 import { useState } from "react";
-import Slider from "react-slick";
 import ReactFlagsSelect from "react-flags-select";
 import { FaFacebook } from "react-icons/fa";
 import { useWindowWidth } from "@react-hook/window-size";
+import Slider from "react-slick";
 
 const normalizedPhoneNumber = (value) => {
   let left =

@@ -8,10 +8,8 @@ export default function Favorites() {
   const dispatch = useDispatch();
 
   const basket = state.context.basket;
-
   const favsList = state.context.favorites;
-  console.log(basket);
-  console.log(favsList);
+
   return (
     <div className="bg-gray-background">
       <div className="container max-w-screen-xl mx-auto flex flex-col">
@@ -62,7 +60,7 @@ export default function Favorites() {
       <div className="container max-w-screen-xl mx-auto flex flex-col pt-8 ">
         <span className="text-sm font-semibold pb-1 pt-2">Sepetim</span>
         {basket.length <= 0 ? (
-          <div className="flex flex-col justify-center items-center w-[500px] mx-auto border-2 p-4 rounded-lg border-red-500">
+          <div className="flex flex-col justify-center items-center w-full p-4 md:w-[500px] mx-auto border-2 rounded-lg border-sepet-border-renk">
             <img
               alt="noreferer"
               className="w-30 h-[120px] cursor-pointer "
