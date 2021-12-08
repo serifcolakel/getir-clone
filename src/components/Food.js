@@ -45,8 +45,8 @@ export default function Food() {
   };
 
   return (
-    <div className=" bg-gray-background gap-y-8 flex flex-col">
-      <div className="relative h:auto md:h-[500px] w-full before:h-full before:z-10 z-10 ">
+    <div className=" bg-gray-background gap-y-8 mx-auto ">
+      <div className=" h:auto md:h-[500px] w-full  before:z-10 z-10 ">
         {sliderWidth >= 768 && (
           <Slider {...settings}>
             <div>
@@ -101,7 +101,7 @@ export default function Food() {
             </div>
           </Slider>
         )}
-        <div className=" md:w-[400px] h-[362px] w-full max-w-screen-xl flex flex-col justify-center items-center gap-y-4 md:absolute md:right-0 md:top-16 md:-translate-x-1/2   md:z-50 bg-white md:rounded-xl ">
+        <div className="md:w-[400px] md:h-[362px] w-full max-w-screen-xl flex flex-col mx-auto justify-center items-center gap-y-4 md:absolute md:right-0 md:top-16 md:-translate-x-1/2   md:z-50 bg-white md:rounded-xl ">
           <span className="text-brand-color font-semibold text-base">
             Adresine getiren restoranları gör
           </span>
@@ -162,7 +162,7 @@ export default function Food() {
         </div>
       </div>
       <SliderOther />
-      <div className="flex md:flex-row gap-y-4 pl-8 flex-col justify-start items-start md:max-w-screen-xl md:items-center md:justify-between h-[180px]  mx-auto md:rounded-xl bg-partner-food">
+      <div className="flex md:flex-row gap-y-4 pl-8 flex-col justify-start items-start max-w-screen-xl md:items-center md:justify-between h-[180px]  mx-auto md:rounded-xl bg-partner-food">
         <img
           alt="partner-food"
           className="hidden md:flex w-[216px] h-[112px]"

@@ -29,7 +29,6 @@ function App() {
         <Route path="/yemek" element={<Food />} />
         <Route path="/su" element={<Water />} />
       </Routes>
-
       <Footer />
     </BrowserRouter>
   );
