@@ -1,37 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 import Cards from "./Cards";
 import Slider from "react-slick";
 import { useWindowWidth } from "@react-hook/window-size";
-import ReactFlagsSelect from "react-flags-select";
 import { FaSearch } from "react-icons/fa";
 import { BiCrosshair } from "react-icons/bi";
 import SliderOther from "./Slider";
-const normalizedPhoneNumber = (value) => {
-  let left =
-    value
-      .replace(/\s/g, "")
-      .match(/.{1,3}/g)
-      ?.join(" ")
-      .substr(0, 7) || "";
-  let right =
-    value
-      .replace(/\s/g, "")
-      .match(/.{1,2}/g)
-      ?.join(" ")
-      .substr(8, 12) || "";
-  return left + right;
-};
+import NormalizePhoneNumber from "./NormalizePhoneNumber";
 
 export default function Food() {
   const sliderWidth = useWindowWidth();
-  const [selected, setSelected] = useState("TR");
 
-  const phones = {
-    US: "+1",
-    TR: "+90",
-    DE: "+50",
-    IT: "+1",
-  };
   const settings = {
     dots: false,
     infinite: true,
@@ -45,8 +23,8 @@ export default function Food() {
   };
 
   return (
-    <div className=" bg-gray-background gap-y-8 mx-auto ">
-      <div className=" h:auto md:h-[500px] w-full  before:z-10 z-10 ">
+    <div className="flex flex-col bg-gray-background gap-y-10 mx-auto ">
+      <div className=" h:auto md:h-[500px] w-full  before:z-10 z-10 md:pb-8">
         {sliderWidth >= 768 && (
           <Slider {...settings}>
             <div>
@@ -101,8 +79,8 @@ export default function Food() {
             </div>
           </Slider>
         )}
-        <div className="md:w-[400px] md:h-[362px] w-full max-w-screen-xl flex flex-col mx-auto justify-center items-center gap-y-4 md:absolute md:right-0 md:top-16 md:-translate-x-1/2   md:z-50 bg-white md:rounded-xl ">
-          <span className="text-brand-color font-semibold text-base">
+        <div className="md:w-[400px] md:h-[362px] w-full flex flex-col mx-auto justify-center items-center gap-y-4 md:absolute md:right-28 md:top-28 md:-translate-x-1/2   md:z-20 bg-white md:rounded-xl ">
+          <span className="text-brand-color font-semibold text-base pt-4 md:p-0">
             Adresine getiren restoranları gör
           </span>
           <div className="w-4/5 h-14 border-2 flex items-center justify-center gap-x-4 text-sm cursor-pointer">
@@ -122,47 +100,12 @@ export default function Food() {
             Giriş yap veya kayıt ol
           </span>
           <div className="flex flex-row gap-x-2 w-4/5">
-            <ReactFlagsSelect
-              className="flag-select"
-              countries={Object.keys(phones)}
-              customLabels={phones}
-              onSelect={(code) => setSelected(code)}
-              selected={selected}
-              selectedSize={12}
-              optionsSize={12}
-            />
-            <label
-              htmlFor="phone"
-              className="flex group w-full relative cursor-pointer "
-            >
-              <input
-                inputMode="numeric"
-                type="tel"
-                maxLength="13"
-                autoComplete="cc-number"
-                name="phone"
-                onChange={(event) => {
-                  const { value } = event.target;
-                  event.target.value = normalizedPhoneNumber(value);
-                }}
-                id="phone"
-                required
-                className="h-14 px-4 border-2 border-gray-200 rounded w-full transition-colors group-hover:border-primary-brand-color outline-none peer text-sm pt-2"
-              />
-              <span className="absolute top-0 left-0 h-full px-4 flex items-center text-sm text-gray-500 transition-all peer-focus:h-5 peer-focus:text-primary-brand-color peer-valid:h-5 peer-valid:text-primary-brand-color peer-valid:text-xs">
-                Telefon Numarası
-              </span>
-            </label>
+            <NormalizePhoneNumber />
           </div>
-          <button className="bg-brand-yellow transition-colors hover:bg-primary-brand-color hover:text-brand-yellow h-12 flex items-center justify-center rounded-md w-4/5 text-sm font-semibold text-primary-brand-color">
-            <a href="https://getir.com/" target="_blank" rel="noreferrer">
-              Telefon ile Devam Et
-            </a>
-          </button>
         </div>
       </div>
       <SliderOther />
-      <div className="flex md:flex-row gap-y-4 pl-8 flex-col justify-start items-start max-w-screen-xl md:items-center md:justify-between h-[180px]  mx-auto md:rounded-xl bg-partner-food">
+      <div className="flex md:flex-row gap-y-4 gap-x-8 pl-8 flex-col p-4 justify-start items-start max-w-screen-xl md:items-center md:justify-between h-[180px]  mx-auto md:rounded-xl bg-partner-food">
         <img
           alt="partner-food"
           className="hidden md:flex w-[216px] h-[112px]"

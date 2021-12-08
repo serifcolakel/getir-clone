@@ -690,6 +690,18 @@ html,
   left: 50%;
 }
 
+.right-0 {
+  right: 0px;
+}
+
+.top-1\/2 {
+  top: 50%;
+}
+
+.top-1\/4 {
+  top: 25%;
+}
+
 .z-10 {
   z-index: 10;
 }
@@ -877,8 +889,30 @@ html,
   max-width: 1280px;
 }
 
+.max-w-screen-2xl {
+  max-width: 1536px;
+}
+
 .-translate-x-1\/2 {
   --tw-translate-x: -50%;
+  -webkit-transform: var(--tw-transform);
+          transform: var(--tw-transform);
+}
+
+.-translate-x-2 {
+  --tw-translate-x: -0.5rem;
+  -webkit-transform: var(--tw-transform);
+          transform: var(--tw-transform);
+}
+
+.-translate-x-1\/4 {
+  --tw-translate-x: -25%;
+  -webkit-transform: var(--tw-transform);
+          transform: var(--tw-transform);
+}
+
+.-translate-x-5 {
+  --tw-translate-x: -1.25rem;
   -webkit-transform: var(--tw-transform);
           transform: var(--tw-transform);
 }
@@ -1003,6 +1037,10 @@ html,
 .gap-x-8 {
   -webkit-column-gap: 2rem;
           column-gap: 2rem;
+}
+
+.gap-y-10 {
+  row-gap: 2.5rem;
 }
 
 .divide-y > :not([hidden]) ~ :not([hidden]) {
@@ -1168,6 +1206,10 @@ html,
   padding: 2rem;
 }
 
+.p-10 {
+  padding: 2.5rem;
+}
+
 .px-4 {
   padding-left: 1rem;
   padding-right: 1rem;
@@ -1228,6 +1270,10 @@ html,
 
 .pr-2 {
   padding-right: 0.5rem;
+}
+
+.pb-10 {
+  padding-bottom: 2.5rem;
 }
 
 .text-center {
@@ -1560,8 +1606,84 @@ html,
     top: 0px;
   }
 
+  .md\:right-1\/2 {
+    right: 50%;
+  }
+
+  .md\:-right-1\/2 {
+    right: -50%;
+  }
+
+  .md\:top-24 {
+    top: 6rem;
+  }
+
+  .md\:top-20 {
+    top: 5rem;
+  }
+
+  .md\:right-1\/4 {
+    right: 25%;
+  }
+
+  .md\:-right-1\/4 {
+    right: -25%;
+  }
+
+  .md\:left-1\/2 {
+    left: 50%;
+  }
+
+  .md\:left-1\/4 {
+    left: 25%;
+  }
+
+  .md\:right-1\/3 {
+    right: 33.333333%;
+  }
+
+  .md\:right-1 {
+    right: 0.25rem;
+  }
+
+  .md\:right-20 {
+    right: 5rem;
+  }
+
+  .md\:right-40 {
+    right: 10rem;
+  }
+
+  .md\:top-56 {
+    top: 14rem;
+  }
+
+  .md\:top-28 {
+    top: 7rem;
+  }
+
+  .md\:right-24 {
+    right: 6rem;
+  }
+
+  .md\:right-28 {
+    right: 7rem;
+  }
+
+  .md\:right-36 {
+    right: 9rem;
+  }
+
   .md\:z-50 {
     z-index: 50;
+  }
+
+  .md\:z-20 {
+    z-index: 20;
+  }
+
+  .md\:z-40 {
+    z-index: 40;
   }
 
   .md\:block {
@@ -1612,6 +1734,10 @@ html,
     .md\:md\:w-\[400px\] {
       width: 400px;
     }
+  }
+
+  .md\:w-4\/5 {
+    width: 80%;
   }
 
   .md\:max-w-screen-xl {
@@ -1696,6 +1822,10 @@ html,
     padding: 0.75rem;
   }
 
+  .md\:p-0 {
+    padding: 0px;
+  }
+
   .md\:pr-6 {
     padding-right: 1.5rem;
   }
@@ -1738,6 +1868,18 @@ html,
 
   .md\:pl-8 {
     padding-left: 2rem;
+  }
+
+  .md\:pb-8 {
+    padding-bottom: 2rem;
+  }
+
+  .md\:pt-8 {
+    padding-top: 2rem;
+  }
+
+  .md\:pt-4 {
+    padding-top: 1rem;
   }
 
   .md\:text-sm {

@@ -1,7 +1,6 @@
 import React from "react";
-import data from "../components/yemekData.json";
+import datas from "../components/yemekData.json";
 export default function Buyuk() {
-  const datas = data;
   return (
     <div>
       {datas.map((data, i) => {
