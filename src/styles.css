@@ -893,6 +893,14 @@ html,
   width: 250px;
 }
 
+.w-\[1800px\] {
+  width: 1800px;
+}
+
+.w-\[2800px\] {
+  width: 2800px;
+}
+
 .max-w-screen-xl {
   max-width: 1280px;
 }
@@ -1755,6 +1763,10 @@ html,
 
   .md\:w-4\/5 {
     width: 80%;
+  }
+
+  .md\:w-\[2800px\] {
+    width: 2800px;
   }
 
   .md\:max-w-screen-xl {

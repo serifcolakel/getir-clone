@@ -1,11 +1,12 @@
 import React from "react";
 import Cards from "../components/Cards";
-import Slider from "react-slick";
 import { useWindowWidth } from "@react-hook/window-size";
 import { FaSearch } from "react-icons/fa";
 import { BiCrosshair } from "react-icons/bi";
-import SliderOther from "../components/Slider";
 import NormalizePhoneNumber from "../components/NormalizePhoneNumber";
+import SliderMultiple from "../components/Slider";
+import data from "../components/datas/videoData.json";
+import dataFood from "../components/datas/yemekData.json";
 
 export default function Food() {
   const sliderWidth = useWindowWidth();
@@ -21,63 +22,39 @@ export default function Food() {
     slidesToScroll: 1,
     cssEase: "linear",
   };
+  const settingsOther = {
+    dots: false,
+    infinite: true,
+    arrows: true,
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: true,
+          dots: true,
+        },
+      },
+    ],
+    autoplaySpeed: 3000,
+    autoplay: true,
+    speed: 1000,
+    slidesToShow: 10,
+    slidesToScroll: 2,
+    cssEase: "linear",
+  };
 
   return (
     <div className="flex flex-col bg-gray-background gap-y-10 mx-auto ">
       <div className=" h:auto md:h-[500px] w-full  before:z-10 z-10 md:pb-8">
         {sliderWidth >= 768 && (
-          <Slider {...settings}>
-            <div>
-              <video
-                className="w-full h-[500px] object-cover"
-                src="https://getir.com/videos/1-hamburger.mp4"
-                autoPlay
-                loop
-                muted
-                playsInline
-              />
-            </div>
-            <div>
-              <video
-                className="w-full h-[500px] object-cover"
-                src="https://getir.com/videos/2-doner.mp4"
-                autoPlay
-                loop
-                muted
-                playsInline
-              />
-            </div>
-            <div>
-              <video
-                className="w-full h-[500px] object-cover"
-                src="https://getir.com/videos/3-pide.mp4"
-                autoPlay
-                loop
-                muted
-                playsInline
-              />
-            </div>
-            <div>
-              <video
-                className="w-full h-[500px] object-cover"
-                src="https://getir.com/videos/4-pizza.mp4"
-                autoPlay
-                loop
-                muted
-                playsInline
-              />
-            </div>
-            <div>
-              <video
-                className="w-full h-[500px] object-cover"
-                src="https://getir.com/videos/5-kunefe.mp4"
-                autoPlay
-                loop
-                muted
-                playsInline
-              />
-            </div>
-          </Slider>
+          <SliderMultiple
+            settings={settings}
+            data={data}
+            className="w-full h-[500px] object-cover"
+            video={true}
+          />
         )}
         <div className="md:w-[400px] md:h-[362px] w-full flex flex-col mx-auto justify-center items-center gap-y-4 md:absolute md:right-28 md:top-28 md:-translate-x-1/2   md:z-20 bg-white md:rounded-xl ">
           <span className="text-brand-color font-semibold text-base pt-4 md:p-0">
@@ -104,7 +81,14 @@ export default function Food() {
           </div>
         </div>
       </div>
-      <SliderOther />
+      <div className="md:max-w-screen-xl w-full mx-auto flex items-center justify-center">
+        <SliderMultiple
+          settings={settingsOther}
+          data={dataFood}
+          video={false}
+          className="w-[120px] h-[75px] object-cover rounded-xl pl-2 pr-2 mb-3"
+        />
+      </div>
       <div className="flex md:flex-row gap-y-4 gap-x-8 pl-8 flex-col p-4 justify-start items-start max-w-screen-xl md:items-center md:justify-between h-[180px]  mx-auto md:rounded-xl bg-partner-food">
         <img
           alt="partner-food"

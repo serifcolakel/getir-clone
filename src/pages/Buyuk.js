@@ -1,5 +1,5 @@
 import React from "react";
-import datas from "../components/yemekData.json";
+import datas from "../components/datas/yemekData.json";
 export default function Buyuk() {
   return (
     <div>

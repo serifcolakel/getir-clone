@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "imageURL": "https://getir.com/videos/1-hamburger.mp4"
+  },
+  {
+    "id": 2,
+    "imageURL": "https://getir.com/videos/2-doner.mp4"
+  },
+  {
+    "id": 3,
+    "imageURL": "https://getir.com/videos/3-pide.mp4"
+  },
+  {
+    "id": 4,
+    "imageURL": "https://getir.com/videos/4-pizza.mp4"
+  },
+  {
+    "id": 5,
+    "imageURL": "https://getir.com/videos/5-kunefe.mp4"
+  }
+]
