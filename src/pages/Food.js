@@ -1,11 +1,11 @@
 import React from "react";
-import Cards from "./Cards";
+import Cards from "../components/Cards";
 import Slider from "react-slick";
 import { useWindowWidth } from "@react-hook/window-size";
 import { FaSearch } from "react-icons/fa";
 import { BiCrosshair } from "react-icons/bi";
-import SliderOther from "./Slider";
-import NormalizePhoneNumber from "./NormalizePhoneNumber";
+import SliderOther from "../components/Slider";
+import NormalizePhoneNumber from "../components/NormalizePhoneNumber";
 
 export default function Food() {
   const sliderWidth = useWindowWidth();

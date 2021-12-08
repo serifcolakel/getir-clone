@@ -1,11 +1,11 @@
 import React from "react";
 import { useWindowWidth } from "@react-hook/window-size";
-import Categories from "./Categories";
-import HeroSection from "./HeroSection";
-import Campaings from "./Campaings";
+import Categories from "../components/Categories";
+import HeroSection from "../components/HeroSection";
+import Campaings from "../components/Campaings";
 import Favorites from "components/Favorites";
-import MobileApp from "./MobileApp";
-import Cards from "./Cards";
+import MobileApp from "../components/MobileApp";
+import Cards from "../components/Cards";
 
 export default function Main() {
   const sliderWidth = useWindowWidth();

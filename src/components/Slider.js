@@ -1,120 +1,58 @@
-import React, { Component } from "react";
+import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import data from "../components/yemekData.json";
 
-export default class SliderOther extends Component {
-  render() {
-    const settingsOther = {
-      dots: false,
-      infinite: true,
-      arrows: true,
-      responsive: [
-        {
-          breakpoint: 768,
-          settings: {
-            slidesToShow: 3,
-            slidesToScroll: 5,
-            infinite: true,
-            dots: true,
-          },
+export default function SliderOther() {
+  const [datas, setDatas] = useState(data);
+  useEffect(() => {
+    setDatas(data);
+  }, [datas]);
+
+  const settingsOther = {
+    dots: false,
+    infinite: true,
+    arrows: true,
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 5,
+          infinite: true,
+          dots: true,
         },
-      ],
-      autoplaySpeed: 3000,
-      autoplay: true,
-      speed: 1000,
-      slidesToShow: 8,
-      slidesToScroll: 2,
-      cssEase: "linear",
-    };
-    return (
-      <div className="flex justify-center p-10 bg-white">
-        <Slider className="md:max-w-screen-xl w-full" {...settingsOther}>
-          <div>
-            <img
-              className="w-[120px] h-[75px] object-cover rounded-2xl pl-2 pr-2"
-              alt="noreferer"
-              src={data[0].imageURL}
-            />
-          </div>
-          <div>
-            <img
-              className="w-[120px] h-[75px] object-cover rounded-2xl pl-2 pr-2"
-              alt="noreferer"
-              src={data[1].imageURL}
-            />
-          </div>
-          <div>
-            <img
-              className="w-[120px] h-[75px] object-cover rounded-2xl pl-2 pr-2"
-              alt="noreferer"
-              src={data[2].imageURL}
-            />
-          </div>
-          <div>
-            <img
-              className="w-[120px] h-[75px] object-cover rounded-2xl pl-2 pr-2"
-              alt="noreferer"
-              src={data[3].imageURL}
-            />
-          </div>
-          <div>
-            <img
-              className="w-[120px] h-[75px] object-cover rounded-2xl pl-2 pr-2"
-              alt="noreferer"
-              src={data[4].imageURL}
-            />
-          </div>
-          <div>
-            <img
-              className="w-[120px] h-[75px] object-cover rounded-2xl pl-2 pr-2"
-              alt="noreferer"
-              src={data[5].imageURL}
-            />
-          </div>
-          <div>
-            <img
-              className="w-[120px] h-[75px] object-cover rounded-2xl pl-2 pr-2"
-              alt="noreferer"
-              src={data[6].imageURL}
-            />
-          </div>
-          <div>
-            <img
-              className="w-[120px] h-[75px] object-cover rounded-2xl pl-2 pr-2"
-              alt="noreferer"
-              src={data[7].imageURL}
-            />
-          </div>
-          <div>
-            <img
-              className="w-[120px] h-[75px] object-cover rounded-2xl pl-2 pr-2"
-              alt="noreferer"
-              src={data[8].imageURL}
-            />
-          </div>
-          <div>
-            <img
-              className="w-[120px] h-[75px] object-cover rounded-2xl pl-2 pr-2"
-              alt="noreferer"
-              src={data[9].imageURL}
-            />
-          </div>
-          <div>
-            <img
-              className="w-[120px] h-[75px] object-cover rounded-2xl pl-2 pr-2"
-              alt="noreferer"
-              src={data[10].imageURL}
-            />
-          </div>
-          <div>
-            <img
-              className="w-[120px] h-[75px] object-cover rounded-2xl pl-2 pr-2"
-              alt="noreferer"
-              src={data[11].imageURL}
-            />
-          </div>
-        </Slider>
-      </div>
-    );
+      },
+    ],
+    autoplaySpeed: 3000,
+    autoplay: true,
+    speed: 1000,
+    slidesToShow: 10,
+    slidesToScroll: 2,
+    cssEase: "linear",
+  };
+
+  function sliders() {
+    return datas.map((data, index) => {
+      return (
+        <div key={index}>
+          <img
+            className="w-[120px] h-[75px] object-cover rounded-xl pl-2 pr-2 mb-3"
+            alt="noreferer"
+            src={data.imageURL}
+          />
+          <p className="pl-2 pr-2 text-base truncate text-gray-500 font-semibold">
+            {data.name}
+          </p>
+        </div>
+      );
+    });
   }
+
+  return (
+    <div className="flex justify-center p-10 bg-white">
+      <Slider className="md:max-w-screen-xl w-full" {...settingsOther}>
+        {sliders()}
+      </Slider>
+    </div>
+  );
 }
