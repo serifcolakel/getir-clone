@@ -31,17 +31,12 @@ export default function Favorites() {
                 </button>
               </div>
 
-              <a
-                href="https://github.com/serifcolakel"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <img
-                  alt="noreferer"
-                  className="w-30 h-[120px] cursor-pointer "
-                  src={items.url}
-                />
-              </a>
+              <img
+                alt="noreferer"
+                className="w-30 h-[120px] cursor-pointer "
+                src={items.url}
+              />
+
               <div className="flex flex-col items-center bg-primary-white w-full md:w-[120px]">
                 <p className="text-sm text-primary-brand-color font-semibold">
                   {"₺" + items.price}

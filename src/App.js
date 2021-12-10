@@ -8,7 +8,7 @@ import Header from "components/Header";
 import GetirBuyuk from "./pages/Buyuk";
 import GetirYemek from "./pages/Food";
 import GetirSu from "./pages/Water";
-import Main from "./pages/Main";
+import Getir from "./pages/Main";
 
 export const FavoritesItem = React.createContext();
 
@@ -24,7 +24,7 @@ function App() {
     <BrowserRouter>
       <Header />
       <Routes>
-        <Route path="/" element={<Main />} />
+        <Route path="/" element={<Getir />} />
         <Route path="/buyuk" element={<GetirBuyuk />} />
         <Route path="/yemek" element={<GetirYemek />} />
         <Route path="/su" element={<GetirSu />} />

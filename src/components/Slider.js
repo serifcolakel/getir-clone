@@ -4,7 +4,7 @@ import Slider from "react-slick";
 export default function SliderMultiple(props) {
   const [datas] = useState(props.data);
   useEffect(() => {
-    console.log("yeni data geldi");
+    console.log("Slider verisi degisti");
   }, [datas]);
 
   function sliders() {
