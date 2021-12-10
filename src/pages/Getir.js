@@ -6,8 +6,10 @@ import Campaings from "../components/Campaings";
 import Favorites from "components/Favorites";
 import MobileApp from "../components/MobileApp";
 import Cards from "../components/Cards";
+import data from "../components/datas/cardsData.json";
 
 export default function Main() {
+  const { getir } = data;
   const sliderWidth = useWindowWidth();
   return (
     <div>
@@ -17,7 +19,7 @@ export default function Main() {
       {sliderWidth > 768 && <Campaings />}
       <Favorites />
       <MobileApp />
-      <Cards />
+      <Cards data={getir} />
     </div>
   );
 }

@@ -5,10 +5,10 @@ import { getCategories, getFavorites } from "./store/actions";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Footer from "components/Footer";
 import Header from "components/Header";
-import GetirBuyuk from "./pages/Buyuk";
-import GetirYemek from "./pages/Food";
-import GetirSu from "./pages/Water";
-import Getir from "./pages/Main";
+import GetirBuyuk from "./pages/GetirBuyuk";
+import GetirYemek from "./pages/GetirYemek";
+import GetirSu from "./pages/GetirSu";
+import Getir from "./pages/Getir";
 
 export const FavoritesItem = React.createContext();
 

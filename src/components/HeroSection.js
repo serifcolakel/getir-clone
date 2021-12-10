@@ -2,11 +2,9 @@ import { FaFacebook } from "react-icons/fa";
 import { useWindowWidth } from "@react-hook/window-size";
 import NormalizePhoneNumber from "./NormalizePhoneNumber";
 import SliderMultiple from "./Slider";
-import data from "../components/datas/getirData.json";
-
+import data from "../components/datas/sliderData.json";
 export default function HeroSection() {
   const sliderWidth = useWindowWidth();
-
   const settings = {
     dots: false,
     infinite: true,
@@ -23,7 +21,7 @@ export default function HeroSection() {
       {sliderWidth >= 768 && (
         <SliderMultiple
           settings={settings}
-          data={data}
+          data={data.getirData}
           className="w-full h-[500px] object-cover"
         />
       )}

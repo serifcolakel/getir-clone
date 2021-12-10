@@ -1,16 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Cards from "../components/Cards";
 import { useWindowWidth } from "@react-hook/window-size";
 import { FaSearch } from "react-icons/fa";
 import { BiCrosshair } from "react-icons/bi";
 import NormalizePhoneNumber from "../components/NormalizePhoneNumber";
 import SliderMultiple from "../components/Slider";
-import data from "../components/datas/videoData.json";
-import dataFood from "../components/datas/yemekData.json";
+import data from "../components/datas/sliderData.json";
+import cardData from "../components/datas/cardsData.json";
 
 export default function Food() {
+  const { getirYemek } = cardData;
   const sliderWidth = useWindowWidth();
-
   const settings = {
     dots: false,
     infinite: true,
@@ -45,13 +45,17 @@ export default function Food() {
     cssEase: "linear",
   };
 
+  useEffect(() => {
+    document.title = "GetirYemek - Yemek siparişi artık Getir farkıyla!";
+  }, []);
+
   return (
     <div className="flex flex-col bg-gray-background gap-y-10 mx-auto ">
       <div className=" h:auto md:h-[500px] w-full  before:z-10 z-10 md:pb-8">
         {sliderWidth >= 768 && (
           <SliderMultiple
             settings={settings}
-            data={data}
+            data={data.videoData}
             className="w-full h-[500px] object-cover"
             video={true}
           />
@@ -84,7 +88,7 @@ export default function Food() {
       <div className="md:max-w-screen-xl w-full mx-auto flex items-center justify-center">
         <SliderMultiple
           settings={settingsOther}
-          data={dataFood}
+          data={data.yemekData}
           video={false}
           className="w-[120px] h-[75px] object-cover rounded-xl pl-2 pr-2 mb-3"
         />
@@ -109,7 +113,7 @@ export default function Food() {
           Hemen Başvur
         </button>
       </div>
-      <Cards />
+      <Cards data={getirYemek} />
     </div>
   );
 }
