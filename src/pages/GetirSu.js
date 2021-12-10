@@ -1,15 +1,16 @@
 import React, { useEffect } from "react";
 import { useWindowWidth } from "@react-hook/window-size";
 import NormalizePhoneNumber from "../components/NormalizePhoneNumber";
-import Categories from "../components/Categories";
 import Campaings from "components/Campaings";
 import Favorites from "components/Favorites";
 import MobileApp from "components/MobileApp";
 import Cards from "components/Cards";
 import cardsData from "../components/datas/cardsData.json";
+import data from "../components/datas/sliderData.json";
 export default function Water() {
-  const { getirSu } = cardsData;
+  const { suData } = data;
   const sliderWidth = useWindowWidth();
+  const { getirSu } = cardsData;
 
   useEffect(() => {
     document.title = "GetirSu - Haftanın her günü kapınızda";
@@ -50,9 +51,8 @@ export default function Water() {
           </div>
         </div>
       </div>
-      <Categories />
       <Campaings />
-      <Favorites />
+      <Favorites data={suData} isBasket={true} />
       <MobileApp />
       <Cards data={getirSu} />
     </>

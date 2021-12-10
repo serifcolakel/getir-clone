@@ -143,5 +143,70 @@
       "imageURL": "https://cdn.getiryemek.com/cuisines/1619220070791_480x300.jpeg"
     }
   ],
-  "suData": []
+  "suData": [
+    {
+      "count": 0,
+      "id": 1,
+      "name": "Kuzeyden Su 19 L - İade Damacanam Var",
+      "price": 19.5,
+      "unit": "",
+      "url": "https://cdn.getir.com/product/593a8862f6eedb019d3f9fdf_tr_1614248257207.jpeg"
+    },
+    {
+      "count": 0,
+      "id": 2,
+      "name": "Kuzeyden Su 19 L - Damacana İadeli x2",
+      "price": 37.5,
+      "unit": "",
+      "url": "https://cdn.getir.com/product/5e996afa02ca4d191ee8dba2_tr_1614248089775.jpeg"
+    },
+    {
+      "count": 0,
+      "id": 3,
+      "name": "Kuzeyden Su 19 L - İade Damacanam Yok",
+      "price": 59.9,
+      "unit": "",
+      "url": "https://cdn.getir.com/product/593a886cf6eedb019d3f9fe0_tr_1618315551935.jpeg"
+    },
+    {
+      "count": 0,
+      "id": 4,
+      "name": "Kuzeyden Su 19 L & 12 x 500 ml - İade Damacanam Var",
+      "price": 32.95,
+      "unit": "",
+      "url": "https://cdn.getir.com/product/6035543c08b6f861adbcc469_tr_1629975111158.jpeg"
+    },
+    {
+      "count": 0,
+      "id": 5,
+      "name": "Kuzeyden Su",
+      "price": 28.9,
+      "unit": "24 x 500 mL",
+      "url": "https://cdn.getir.com/product/603545c9877ea1efbab7dc90_tr_1630062624863.jpeg"
+    },
+    {
+      "count": 0,
+      "id": 6,
+      "name": "Kuzeyden Su",
+      "price": 28.9,
+      "unit": "12 x 1,5 L",
+      "url": "https://cdn.getir.com/product/60354bbd1526a7b49644571f_tr_1616483170695.jpeg"
+    },
+    {
+      "count": 0,
+      "id": 7,
+      "name": "Su Pompası",
+      "price": 24.5,
+      "unit": "1.5 L",
+      "url": "https://cdn.getir.com/product/599fdb62c577ee0004dc9d97_tr_1628971721475.jpeg"
+    },
+    {
+      "count": 0,
+      "id": 8,
+      "name": "Damacana Cam Pompa Borusu",
+      "price": 34.9,
+      "unit": "1.5 L",
+      "url": "https://cdn.getir.com/product/5a4dd4877614470004f366d1_tr_1630576424666.jpeg"
+    }
+  ]
 }

@@ -10,8 +10,6 @@ import GetirYemek from "./pages/GetirYemek";
 import GetirSu from "./pages/GetirSu";
 import Getir from "./pages/Getir";
 
-export const FavoritesItem = React.createContext();
-
 function App() {
   const dispatch = useDispatch();
 

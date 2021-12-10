@@ -54,7 +54,7 @@ export default function HeroSection() {
             </h3>
           </div>
           <div className="w-full md:w-[400px] md:rounded-lg bg-gray-50 p-6">
-            <h4 className="text-red-800 text-center font-semibold mb-4">
+            <h4 className="text-primary-brand-color text-center font-semibold mb-4">
               Giriş yap veya kayıt ol
             </h4>
             <div className="grid gap-y-4 w-full">
@@ -65,7 +65,7 @@ export default function HeroSection() {
           </div>
         </div>
       </div>
-      <Categories />
+      <Categories data="new data" />
       <Campaings />
       <Favorites />
       <MobileApp />

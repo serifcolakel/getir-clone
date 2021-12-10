@@ -1,10 +1,18 @@
 import React from "react";
 import { useSelector } from "react-redux";
 
-export default function Categories() {
+export default function Categories(props) {
   const state = useSelector((state) => state);
-
-  const categoriesItems = state.context.categories;
+  const categoriesItem = state.context.categories;
+  let categoriesItems = [...categoriesItem];
+  if (props.data) {
+    categoriesItems.splice(3, 0, {
+      id: "125125qwoe213",
+      name: "Et, Tavuk & Balık",
+      picURL:
+        "https://cdn.getir.com/cat/5d01535e7730a800019b09cf_1619242974937_1619242975026.jpeg",
+    });
+  }
 
   return (
     <div className="md:pt-6 md:pb-6 max-w-screen-xl mx-auto flex flex-col p-2">
