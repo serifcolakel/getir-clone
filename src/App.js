@@ -1,7 +1,13 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { useDispatch } from "react-redux";
-import { getCategories, getFavorites } from "./store/actions";
+import {
+  getCards,
+  getCategories,
+  getFavorites,
+  getSliderData,
+  getFooterLink,
+} from "./store/actions";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Footer from "components/Footer";
 import Header from "components/Header";
@@ -14,6 +20,9 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    dispatch(getFooterLink());
+    dispatch(getSliderData());
+    dispatch(getCards());
     dispatch(getCategories());
     dispatch(getFavorites());
   }, [dispatch]);

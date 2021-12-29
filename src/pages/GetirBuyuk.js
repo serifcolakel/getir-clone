@@ -1,6 +1,5 @@
 import { useWindowWidth } from "@react-hook/window-size";
 import { useEffect } from "react";
-import data from "../components/datas/sliderData.json";
 import SliderMultiple from "../components/Slider";
 import NormalizePhoneNumber from "../components/NormalizePhoneNumber";
 import Categories from "../components/Categories";
@@ -8,11 +7,15 @@ import Campaings from "components/Campaings";
 import Favorites from "components/Favorites";
 import MobileApp from "components/MobileApp";
 import Cards from "components/Cards";
-import cardsData from "components/datas/cardsData.json";
+import { useSelector } from "react-redux";
 
 export default function HeroSection() {
-  const { getirBuyuk } = cardsData;
+  const state = useSelector((state) => state);
+  const cards = state.context.cards;
+  const getirBuyuk = cards.getirBuyuk;
   const sliderWidth = useWindowWidth();
+  const sliderData = state.context.sliderData;
+  const buyukData = sliderData.buyukData;
 
   const settings = {
     dots: false,
@@ -29,14 +32,16 @@ export default function HeroSection() {
   useEffect(() => {
     document.title = "GetirBüyük - Binlerce Ürün Market Fiyatına";
   }, []);
-
+  if (!getirBuyuk || !buyukData) {
+    return <div>Loading</div>;
+  }
   return (
     <>
       <div className="relative h:auto md:h-[500px]  before:bg-gradient-to-r before:from-primary-brand-color before:to-trasnparent before:absolute before:inset-0 before:w-full before:h-full before:z-10">
         {sliderWidth >= 768 && (
           <SliderMultiple
             settings={settings}
-            data={data.buyukData}
+            data={buyukData}
             className="w-full h-[500px] object-cover"
           />
         )}

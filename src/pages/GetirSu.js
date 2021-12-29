@@ -5,24 +5,31 @@ import Campaings from "components/Campaings";
 import Favorites from "components/Favorites";
 import MobileApp from "components/MobileApp";
 import Cards from "components/Cards";
-import cardsData from "../components/datas/cardsData.json";
-import data from "../components/datas/sliderData.json";
+import { useSelector } from "react-redux";
+
 export default function Water() {
-  const { suData } = data;
   const sliderWidth = useWindowWidth();
-  const { getirSu } = cardsData;
+  const state = useSelector((state) => state);
+
+  const cards = state.context.cards;
+  const getirSu = cards.getirSu;
+  const sliderData = state.context.sliderData;
+  const suData = sliderData.suData;
 
   useEffect(() => {
     document.title = "GetirSu - Haftanın her günü kapınızda";
   }, []);
 
+  if (!getirSu || !suData) {
+    return <div>Loading</div>;
+  }
   return (
     <>
       <div className="relative h:auto md:h-[500px]  before:bg-gradient-to-r before:from-primary-brand-color before:to-trasnparent before:absolute before:inset-0 before:w-full before:h-full before:z-10">
         {sliderWidth >= 768 && (
           <img
             src="https://getir.com/_next/static/images/water-1-293b9ae905fc9a13bd597a5512813e31.jpg"
-            alt=""
+            alt="water-"
             className=" w-full h-[500px] object-cover"
           />
         )}

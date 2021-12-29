@@ -2,8 +2,12 @@ import { FaFacebook } from "react-icons/fa";
 import { useWindowWidth } from "@react-hook/window-size";
 import NormalizePhoneNumber from "./NormalizePhoneNumber";
 import SliderMultiple from "./Slider";
-import data from "../components/datas/sliderData.json";
+import { useSelector } from "react-redux";
+
 export default function HeroSection() {
+  const state = useSelector((state) => state);
+  const sliderData = state.context.sliderData;
+  const getirData = sliderData.getirData;
   const sliderWidth = useWindowWidth();
   const settings = {
     dots: false,
@@ -16,12 +20,16 @@ export default function HeroSection() {
     slidesToScroll: 1,
     cssEase: "linear",
   };
+
+  if (!getirData) {
+    return <div>loading..</div>;
+  }
   return (
     <div className="relative h:auto md:h-[500px]  before:bg-gradient-to-r before:from-primary-brand-color before:to-trasnparent before:absolute before:inset-0 before:w-full before:h-full before:z-10">
       {sliderWidth >= 768 && (
         <SliderMultiple
           settings={settings}
-          data={data.getirData}
+          data={getirData}
           className="w-full h-[500px] object-cover"
         />
       )}

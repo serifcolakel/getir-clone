@@ -5,11 +5,16 @@ import { FaSearch } from "react-icons/fa";
 import { BiCrosshair } from "react-icons/bi";
 import NormalizePhoneNumber from "../components/NormalizePhoneNumber";
 import SliderMultiple from "../components/Slider";
-import data from "../components/datas/sliderData.json";
-import cardData from "../components/datas/cardsData.json";
+import { useSelector } from "react-redux";
 
 export default function Food() {
-  const { getirYemek } = cardData;
+  const state = useSelector((state) => state);
+  const cards = state.context.cards;
+  const getirYemek = cards.getirYemek;
+  const sliderData = state.context.sliderData;
+  const videoData = sliderData.videoData;
+  const yemekData = sliderData.yemekData;
+
   const sliderWidth = useWindowWidth();
   const settings = {
     dots: false,
@@ -48,14 +53,16 @@ export default function Food() {
   useEffect(() => {
     document.title = "GetirYemek - Yemek siparişi artık Getir farkıyla!";
   }, []);
-
+  if (!getirYemek || !videoData) {
+    return <div>Loading</div>;
+  }
   return (
     <div className="flex flex-col bg-gray-background gap-y-10 mx-auto ">
       <div className=" h:auto md:h-[500px] w-full  before:z-10 z-10 md:pb-8">
         {sliderWidth >= 768 && (
           <SliderMultiple
             settings={settings}
-            data={data.videoData}
+            data={videoData}
             className="w-full h-[500px] object-cover"
             video={true}
           />
@@ -88,7 +95,7 @@ export default function Food() {
       <div className="md:max-w-screen-xl w-full mx-auto flex items-center justify-center">
         <SliderMultiple
           settings={settingsOther}
-          data={data.yemekData}
+          data={yemekData}
           video={false}
           className="w-[120px] h-[75px] object-cover rounded-xl pl-2 pr-2 mb-3"
         />

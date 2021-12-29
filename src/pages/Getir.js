@@ -6,11 +6,18 @@ import Campaings from "../components/Campaings";
 import Favorites from "components/Favorites";
 import MobileApp from "../components/MobileApp";
 import Cards from "../components/Cards";
-import data from "../components/datas/cardsData.json";
+import { useSelector } from "react-redux";
 
 export default function Main() {
-  const { getir } = data;
+  const state = useSelector((state) => state);
+  const cards = state.context.cards;
+  const getir = cards.getir;
+
   const sliderWidth = useWindowWidth();
+
+  if (!getir) {
+    return <div>Loading...</div>;
+  }
   return (
     <div>
       {sliderWidth <= 768 && <Campaings />}

@@ -6,14 +6,14 @@ import { contextActions } from "store/context";
 export default function Favorites({ data, isBasket }) {
   const state = useSelector((state) => state);
   const dispatch = useDispatch();
-
   const basket = state.context.basket;
   const favsList = state.context.favorites;
+
   return (
     <div className="bg-gray-background">
       <div className="container max-w-screen-xl mx-auto flex flex-col">
         <span className="text-sm font-semibold pb-1">Favoriler</span>
-        <div className="grid grid-cols-3 md:grid-cols-5 xl:grid-cols-8 grid-rows-2">
+        <div className="grid grid-cols-3 md:grid-cols-4 xl:grid-cols-5 grid-rows-2">
           {(data ? data : favsList).map((items) => (
             <div
               key={items.id}
@@ -52,7 +52,7 @@ export default function Favorites({ data, isBasket }) {
         </div>
       </div>
       {isBasket ? null : (
-        <div className="container max-w-screen-xl mx-auto flex flex-col pt-8 ">
+        <div className="container max-w-screen-xl mx-auto flex flex-col pt-8 md:z-50 ">
           <span className="text-sm font-semibold pb-1 pt-2">Sepetim</span>
           {basket.length <= 0 ? (
             <div className="flex flex-col justify-center items-center w-full p-4 md:w-[500px] mx-auto border-2 rounded-lg border-sepet-border-renk">

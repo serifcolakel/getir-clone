@@ -19,7 +19,7 @@ export default function Categories(props) {
       <span className="text-sm font-semibold md:pb-1">Kategoriler</span>
       <div className="grid grid-cols-4 max-w-screen-xl md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-10">
         {categoriesItems.map((x) => (
-          <a href="/" key={x.id}>
+          <a href="/kategori" key={x.id}>
             <div className="flex flex-col gap-y-2 hover:text-primary-brand-color hover:bg-primary-brand-color-lights cursor-pointer md:p-4 justify-between items-center container w-full md:w-27 h-auto md:h-[108px] ">
               <img
                 alt="noreferer"

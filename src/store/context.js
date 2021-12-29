@@ -4,6 +4,9 @@ let initialState = {
   categories: [],
   favorites: [],
   basket: [],
+  cards: [],
+  sliderData: [],
+  footerLink: [],
   message: "",
 };
 const contextSlice = createSlice({
@@ -15,6 +18,15 @@ const contextSlice = createSlice({
     },
     setFavorites: (state, action) => {
       state.favorites = action.payload.favorites;
+    },
+    setCards: (state, action) => {
+      state.cards = action.payload.cards;
+    },
+    setSliderData: (state, action) => {
+      state.sliderData = action.payload.sliderData;
+    },
+    setFooterLink: (state, action) => {
+      state.footerLink = action.payload.footerLink;
     },
     setBasket: (state, action) => {
       state.basket = action.payload.id;

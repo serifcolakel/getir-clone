@@ -6,9 +6,15 @@ import { BsChevronUp, BsChevronDown } from "react-icons/bs";
 import React from "react";
 import { isMobile } from "react-device-detect";
 import { Transition } from "@tailwindui/react";
-import data from "./datas/footerLink.json";
+import { useSelector } from "react-redux";
 
 export default function Footer() {
+  const state = useSelector((state) => state);
+  const data = state.context.footerLink;
+  const content = data.content;
+  if (!content) {
+    return <div>Loading</div>;
+  }
   return (
     <>
       <div className="divide-y  pt-6">
@@ -24,7 +30,11 @@ export default function Footer() {
                 </a>
               ))}
             </div>
-            {isMobile ? <Mobile /> : <NotMobile />}
+            {isMobile ? (
+              <Mobile data={content} />
+            ) : (
+              <NotMobile data={content} />
+            )}
           </div>
         </div>
         <div className="flex flex-col md:flex-row md:justify-between items-center max-w-screen-xl mx-auto md:pt-6 md:bg-primary-white bg-gray-background">
@@ -81,12 +91,12 @@ export default function Footer() {
     </>
   );
 }
-function Mobile() {
+function Mobile(props) {
   const [openedTab, setOpenedTab] = React.useState(0);
-
+  const datas = props.data;
   return (
     <>
-      {data.content.map((x, i) => (
+      {datas.map((x, i) => (
         <div className="grid" key={i}>
           <div className="flex justify-between" onClick={() => setOpenedTab(i)}>
             <span className="font-normal text-xl	text-primary-brand-color">
@@ -119,10 +129,11 @@ function Mobile() {
     </>
   );
 }
-function NotMobile() {
+function NotMobile(props) {
+  const datas = props.data;
   return (
     <>
-      {data.content.map((x, i) => (
+      {datas.map((x, i) => (
         <div className="grid" key={i}>
           <span className="font-normal text-xl	text-primary-brand-color">
             {x.title}
