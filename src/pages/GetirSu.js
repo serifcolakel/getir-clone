@@ -6,11 +6,11 @@ import Favorites from "components/Favorites";
 import MobileApp from "components/MobileApp";
 import Cards from "components/Cards";
 import { useSelector } from "react-redux";
+import Loading from "components/Loading";
 
 export default function Water() {
   const sliderWidth = useWindowWidth();
   const state = useSelector((state) => state);
-
   const cards = state.context.cards;
   const getirSu = cards.getirSu;
   const sliderData = state.context.sliderData;
@@ -21,7 +21,7 @@ export default function Water() {
   }, []);
 
   if (!getirSu || !suData) {
-    return <div>Loading</div>;
+    return <Loading />;
   }
   return (
     <>

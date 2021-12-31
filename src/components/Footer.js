@@ -13,7 +13,7 @@ export default function Footer() {
   const data = state.context.footerLink;
   const content = data.content;
   if (!content) {
-    return <div>Loading</div>;
+    return null;
   }
   return (
     <>
@@ -37,7 +37,7 @@ export default function Footer() {
             )}
           </div>
         </div>
-        <div className="flex flex-col md:flex-row md:justify-between items-center max-w-screen-xl mx-auto md:pt-6 md:bg-primary-white bg-gray-background">
+        <div className="flex flex-col md:flex-row md:justify-between items-center max-w-screen-xl mx-auto md:pt-6 md:pb-6 md:bg-primary-white bg-gray-background">
           <div className="flex flex-col md:flex-row items-center md:gap-x-8">
             <span>© 2021 Getir </span>
             <ul className="list-disc">
@@ -54,7 +54,7 @@ export default function Footer() {
               </li>
             </ul>
           </div>
-          <div className="flex flex-row md:gap-x-4 md:pb-6">
+          <div className="flex flex-row md:gap-x-4 ">
             <a
               className="hover:bg-primary-brand-color-lights hover:text-primary-brand-color p-2"
               href="https://www.instagram.com/getir"

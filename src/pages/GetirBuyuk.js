@@ -8,6 +8,7 @@ import Favorites from "components/Favorites";
 import MobileApp from "components/MobileApp";
 import Cards from "components/Cards";
 import { useSelector } from "react-redux";
+import Loading from "components/Loading";
 
 export default function HeroSection() {
   const state = useSelector((state) => state);
@@ -33,7 +34,7 @@ export default function HeroSection() {
     document.title = "GetirBüyük - Binlerce Ürün Market Fiyatına";
   }, []);
   if (!getirBuyuk || !buyukData) {
-    return <div>Loading</div>;
+    return <Loading />;
   }
   return (
     <>

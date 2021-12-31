@@ -15,6 +15,7 @@ import GetirBuyuk from "./pages/GetirBuyuk";
 import GetirYemek from "./pages/GetirYemek";
 import GetirSu from "./pages/GetirSu";
 import Getir from "./pages/Getir";
+import GetirKategori from "pages/GetirKategori";
 
 function App() {
   const dispatch = useDispatch();
@@ -34,6 +35,7 @@ function App() {
         <Route path="/" element={<Getir />} />
         <Route path="/buyuk" element={<GetirBuyuk />} />
         <Route path="/yemek" element={<GetirYemek />} />
+        <Route path="/kategori" element={<GetirKategori />} />
         <Route path="/su" element={<GetirSu />} />
       </Routes>
       <Footer />

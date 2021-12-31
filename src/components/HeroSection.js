@@ -3,6 +3,7 @@ import { useWindowWidth } from "@react-hook/window-size";
 import NormalizePhoneNumber from "./NormalizePhoneNumber";
 import SliderMultiple from "./Slider";
 import { useSelector } from "react-redux";
+import Loading from "./Loading";
 
 export default function HeroSection() {
   const state = useSelector((state) => state);
@@ -22,7 +23,7 @@ export default function HeroSection() {
   };
 
   if (!getirData) {
-    return <div>loading..</div>;
+    return <Loading />;
   }
   return (
     <div className="relative h:auto md:h-[500px]  before:bg-gradient-to-r before:from-primary-brand-color before:to-trasnparent before:absolute before:inset-0 before:w-full before:h-full before:z-10">

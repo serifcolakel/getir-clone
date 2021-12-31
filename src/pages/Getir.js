@@ -7,6 +7,7 @@ import Favorites from "components/Favorites";
 import MobileApp from "../components/MobileApp";
 import Cards from "../components/Cards";
 import { useSelector } from "react-redux";
+import Loading from "components/Loading";
 
 export default function Main() {
   const state = useSelector((state) => state);
@@ -16,7 +17,7 @@ export default function Main() {
   const sliderWidth = useWindowWidth();
 
   if (!getir) {
-    return <div>Loading...</div>;
+    return <Loading />;
   }
   return (
     <div>

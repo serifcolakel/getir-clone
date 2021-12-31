@@ -6,6 +6,7 @@ import { BiCrosshair } from "react-icons/bi";
 import NormalizePhoneNumber from "../components/NormalizePhoneNumber";
 import SliderMultiple from "../components/Slider";
 import { useSelector } from "react-redux";
+import Loading from "components/Loading";
 
 export default function Food() {
   const state = useSelector((state) => state);
@@ -54,7 +55,7 @@ export default function Food() {
     document.title = "GetirYemek - Yemek siparişi artık Getir farkıyla!";
   }, []);
   if (!getirYemek || !videoData) {
-    return <div>Loading</div>;
+    return <Loading />;
   }
   return (
     <div className="flex flex-col bg-gray-background gap-y-10 mx-auto ">
