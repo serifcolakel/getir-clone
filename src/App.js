@@ -7,6 +7,25 @@ import {
   getFavorites,
   getSliderData,
   getFooterLink,
+  getCampaings,
+  getNewItem,
+  getIndirim,
+  getSuIcecek,
+  getMeyveSebze,
+  getFirindan,
+  getTemelGida,
+  getAtistirmalik,
+  getDondurma,
+  getYiyecek,
+  getSutUrunleri,
+  getFitForm,
+  getKisiselBakim,
+  getEvBakim,
+  getEvYasam,
+  getTeknoloji,
+  getEvcilHayvan,
+  getBebek,
+  getCinselSaglik,
 } from "./store/actions";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Footer from "components/Footer";
@@ -21,6 +40,25 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    dispatch(getCinselSaglik());
+    dispatch(getBebek());
+    dispatch(getEvcilHayvan());
+    dispatch(getTeknoloji());
+    dispatch(getEvYasam());
+    dispatch(getEvBakim());
+    dispatch(getKisiselBakim());
+    dispatch(getFitForm());
+    dispatch(getSutUrunleri());
+    dispatch(getDondurma());
+    dispatch(getYiyecek());
+    dispatch(getAtistirmalik());
+    dispatch(getTemelGida());
+    dispatch(getFirindan());
+    dispatch(getMeyveSebze());
+    dispatch(getSuIcecek());
+    dispatch(getIndirim());
+    dispatch(getNewItem());
+    dispatch(getCampaings());
     dispatch(getFooterLink());
     dispatch(getSliderData());
     dispatch(getCards());

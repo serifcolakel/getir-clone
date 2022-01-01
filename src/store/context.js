@@ -6,7 +6,27 @@ let initialState = {
   basket: [],
   cards: [],
   sliderData: [],
+  campaings: [],
   footerLink: [],
+  newItem: [],
+  indirim: [],
+  suIcecek: [],
+  Firindan: [],
+  MeyveSebze: [],
+  temelGida: [],
+  atistirmalik: [],
+  dondurma: [],
+  yiyecek: [],
+  sutUrunleri: [],
+  fitForm: [],
+  kisiselBakim: [],
+  evBakim: [],
+  evYasam: [],
+  teknoloji: [],
+  evcilHayvan: [],
+  bebek: [],
+  cinselSaglik: [],
+  isLoading: false,
   message: "",
 };
 const contextSlice = createSlice({
@@ -27,6 +47,63 @@ const contextSlice = createSlice({
     },
     setFooterLink: (state, action) => {
       state.footerLink = action.payload.footerLink;
+    },
+    setCampaings: (state, action) => {
+      state.campaings = action.payload.campaings;
+    },
+    setNewItem: (state, action) => {
+      state.newItem = action.payload.newItem;
+    },
+    setIndirim: (state, action) => {
+      state.indirim = action.payload.indirim;
+    },
+    setSuIcecek: (state, action) => {
+      state.suIcecek = action.payload.suIcecek;
+    },
+    setMeyveSebze: (state, action) => {
+      state.MeyveSebze = action.payload.MeyveSebze;
+    },
+    setFirindan: (state, action) => {
+      state.Firindan = action.payload.Firindan;
+    },
+    setTemelGida: (state, action) => {
+      state.temelGida = action.payload.temelGida;
+    },
+    setAtistirmalik: (state, action) => {
+      state.atistirmalik = action.payload.atistirmalik;
+    },
+    setDondurma: (state, action) => {
+      state.dondurma = action.payload.dondurma;
+    },
+    setYiyecek: (state, action) => {
+      state.yiyecek = action.payload.yiyecek;
+    },
+    setSutUrunleri: (state, action) => {
+      state.sutUrunleri = action.payload.sutUrunleri;
+    },
+    setFitForm: (state, action) => {
+      state.fitForm = action.payload.fitForm;
+    },
+    setKisiselBakim: (state, action) => {
+      state.kisiselBakim = action.payload.kisiselBakim;
+    },
+    setEvBakim: (state, action) => {
+      state.evBakim = action.payload.evBakim;
+    },
+    setEvYasam: (state, action) => {
+      state.evYasam = action.payload.evYasam;
+    },
+    setTeknoloji: (state, action) => {
+      state.teknoloji = action.payload.teknoloji;
+    },
+    setEvcilHayvan: (state, action) => {
+      state.evcilHayvan = action.payload.evcilHayvan;
+    },
+    setBebek: (state, action) => {
+      state.bebek = action.payload.bebek;
+    },
+    setCinselSaglik: (state, action) => {
+      state.cinselSaglik = action.payload.cinselSaglik;
     },
     setBasket: (state, action) => {
       state.basket = action.payload.id;

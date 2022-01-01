@@ -45,3 +45,171 @@ export const getFooterLink = () => {
     dispatch(contextActions.setFooterLink({ footerLink: data.data }));
   };
 };
+
+export const getCampaings = () => {
+  return async (dispatch) => {
+    let data = await axios.get(
+      "https://getir-api-clone.herokuapp.com/api/campaings"
+    );
+    dispatch(contextActions.setCampaings({ campaings: data.data }));
+  };
+};
+
+export const getNewItem = () => {
+  return async (dispatch) => {
+    let data = await axios.get(
+      "https://getir-api-clone.herokuapp.com/api/newItem"
+    );
+    dispatch(contextActions.setNewItem({ newItem: data.data }));
+  };
+};
+
+export const getIndirim = () => {
+  return async (dispatch) => {
+    let data = await axios.get(
+      "https://getir-api-clone.herokuapp.com/api/discount"
+    );
+    dispatch(contextActions.setIndirim({ indirim: data.data }));
+  };
+};
+
+export const getSuIcecek = () => {
+  return async (dispatch) => {
+    let data = await axios.get(
+      "https://getir-api-clone.herokuapp.com/api/suicecek"
+    );
+    dispatch(contextActions.setSuIcecek({ suIcecek: data.data }));
+  };
+};
+
+export const getMeyveSebze = () => {
+  return async (dispatch) => {
+    let data = await axios.get(
+      "https://getir-api-clone.herokuapp.com/api/meyvesebze"
+    );
+    dispatch(contextActions.setMeyveSebze({ MeyveSebze: data.data }));
+  };
+};
+
+export const getFirindan = () => {
+  return async (dispatch) => {
+    let data = await axios.get(
+      "https://getir-api-clone.herokuapp.com/api/firindan"
+    );
+    dispatch(contextActions.setFirindan({ Firindan: data.data }));
+  };
+};
+
+export const getTemelGida = () => {
+  return async (dispatch) => {
+    let data = await axios.get(
+      "https://getir-api-clone.herokuapp.com/api/temelgida"
+    );
+    dispatch(contextActions.setTemelGida({ temelGida: data.data }));
+  };
+};
+
+export const getAtistirmalik = () => {
+  return async (dispatch) => {
+    let data = await axios.get(
+      "https://getir-api-clone.herokuapp.com/api/atistirmalik"
+    );
+    dispatch(contextActions.setAtistirmalik({ atistirmalik: data.data }));
+  };
+};
+
+export const getDondurma = () => {
+  return async (dispatch) => {
+    let data = await axios.get(
+      "https://getir-api-clone.herokuapp.com/api/dondurma"
+    );
+    dispatch(contextActions.setDondurma({ dondurma: data.data }));
+  };
+};
+export const getEvcilHayvan = () => {
+  return async (dispatch) => {
+    let data = await axios.get(
+      "https://getir-api-clone.herokuapp.com/api/evcilHayvan"
+    );
+    dispatch(contextActions.setEvcilHayvan({ evcilHayvan: data.data }));
+  };
+};
+
+export const getTeknoloji = () => {
+  return async (dispatch) => {
+    let data = await axios.get(
+      "https://getir-api-clone.herokuapp.com/api/teknoloji"
+    );
+    dispatch(contextActions.setTeknoloji({ teknoloji: data.data }));
+  };
+};
+
+export const getYiyecek = () => {
+  return async (dispatch) => {
+    let data = await axios.get(
+      "https://getir-api-clone.herokuapp.com/api/yiyecek"
+    );
+    dispatch(contextActions.setYiyecek({ yiyecek: data.data }));
+  };
+};
+export const getBebek = () => {
+  return async (dispatch) => {
+    let data = await axios.get(
+      "https://getir-api-clone.herokuapp.com/api/bebek"
+    );
+    dispatch(contextActions.setBebek({ bebek: data.data }));
+  };
+};
+
+export const getSutUrunleri = () => {
+  return async (dispatch) => {
+    let data = await axios.get(
+      "https://getir-api-clone.herokuapp.com/api/suturunleri"
+    );
+    dispatch(contextActions.setSutUrunleri({ sutUrunleri: data.data }));
+  };
+};
+
+export const getCinselSaglik = () => {
+  return async (dispatch) => {
+    let data = await axios.get(
+      "https://getir-api-clone.herokuapp.com/api/cinselSaglik"
+    );
+    dispatch(contextActions.setCinselSaglik({ cinselSaglik: data.data }));
+  };
+};
+
+export const getFitForm = () => {
+  return async (dispatch) => {
+    let data = await axios.get(
+      "https://getir-api-clone.herokuapp.com/api/fitform"
+    );
+    dispatch(contextActions.setFitForm({ fitForm: data.data }));
+  };
+};
+
+export const getKisiselBakim = () => {
+  return async (dispatch) => {
+    let data = await axios.get(
+      "https://getir-api-clone.herokuapp.com/api/kisiselbakim"
+    );
+    dispatch(contextActions.setKisiselBakim({ kisiselBakim: data.data }));
+  };
+};
+export const getEvBakim = () => {
+  return async (dispatch) => {
+    let data = await axios.get(
+      "https://getir-api-clone.herokuapp.com/api/evbakim"
+    );
+    dispatch(contextActions.setEvBakim({ evBakim: data.data }));
+  };
+};
+
+export const getEvYasam = () => {
+  return async (dispatch) => {
+    let data = await axios.get(
+      "https://getir-api-clone.herokuapp.com/api/evyasam"
+    );
+    dispatch(contextActions.setEvYasam({ evYasam: data.data }));
+  };
+};
