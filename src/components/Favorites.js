@@ -8,7 +8,7 @@ export default function Favorites({ data, isBasket }) {
   const dispatch = useDispatch();
   const basket = state.context.basket;
   const favsList = state.context.favorites;
-
+  console.log(basket);
   return (
     <div className="bg-gray-background">
       <div className="container max-w-screen-xl mx-auto flex flex-col">
@@ -20,9 +20,10 @@ export default function Favorites({ data, isBasket }) {
               className="relative flex flex-col bg-primary-white justify-center items-center border-b border-r border-opacity-30  md:p-3 w-full md:w-30"
             >
               <div
-                onClick={() =>
-                  dispatch(contextActions.addToBasket({ id: items.id }))
-                }
+                onClick={() => {
+                  dispatch(contextActions.addToBasket({ id: items.id }));
+                  console.log(state.context.basket);
+                }}
                 className="flex absolute w-9 h-9 top-5 right-5 font-xl justify-center text-primary-brand-color items-center rounded-lg border z-10 bg-primary-white cursor-pointer"
               >
                 <button>
@@ -33,7 +34,7 @@ export default function Favorites({ data, isBasket }) {
               <img
                 alt="noreferer"
                 className="w-30 h-[120px] cursor-pointer "
-                src={items.url}
+                src={items.squareThumbnailURL}
               />
 
               <div className="flex flex-col items-center bg-primary-white w-full md:w-[120px]">
@@ -44,7 +45,7 @@ export default function Favorites({ data, isBasket }) {
                   {items.name}
                 </p>
                 <p className="text-sm text-brand-gray text-center font-semibold">
-                  {items.unit}
+                  {items.shortDescription}
                 </p>
               </div>
             </div>
@@ -117,7 +118,10 @@ export default function Favorites({ data, isBasket }) {
                       <img
                         alt="noreferer"
                         className="w-30 h-[120px] cursor-pointer "
-                        src={items.url || "https://via.placeholder.com/150"}
+                        src={
+                          items.squareThumbnailURL ||
+                          "http://add-urls.org/wp-content/themes/flymag/images/placeholder.png"
+                        }
                       />
                     </a>
                     <div className="flex flex-col items-center bg-primary-white w-full md:w-[120px]">
@@ -128,7 +132,7 @@ export default function Favorites({ data, isBasket }) {
                         {items.name}
                       </p>
                       <p className="text-sm text-brand-gray text-center font-semibold">
-                        {items.unit}
+                        {items.shortDescription}
                       </p>
                     </div>
                   </div>

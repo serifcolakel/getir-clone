@@ -142,7 +142,9 @@ export default function Header() {
                           <div
                             onClick={() =>
                               dispatch(
-                                contextActions.addToBasket({ id: items.id })
+                                contextActions.addToBasket({
+                                  id: items.id,
+                                })
                               )
                             }
                             className="flex  w-7 h-7  font-xl justify-center text-primary-brand-color items-center rounded-lg border z-10 bg-primary-white cursor-pointer"
@@ -160,7 +162,10 @@ export default function Header() {
                           <img
                             alt="noreferer"
                             className="w-30 h-[120px] cursor-pointer "
-                            src={items.url || "https://via.placeholder.com/150"}
+                            src={
+                              items.squareThumbnailURL ||
+                              "https://via.placeholder.com/150"
+                            }
                           />
                         </a>
                         <div className="flex flex-col items-center bg-primary-white w-full md:w-[120px]">
@@ -171,7 +176,7 @@ export default function Header() {
                             {items.name}
                           </p>
                           <p className="text-sm text-brand-gray text-center font-semibold">
-                            {items.unit}
+                            {items.shortDescription}
                           </p>
                         </div>
                       </div>

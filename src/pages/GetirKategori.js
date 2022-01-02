@@ -2,15 +2,20 @@ import Campaings from "components/Campaings";
 import Loading from "components/Loading";
 import React from "react";
 import { BiSearch } from "react-icons/bi";
-import { FiPlus } from "react-icons/fi";
+import { FiMinus, FiPlus } from "react-icons/fi";
 import {
   MdKeyboardArrowRight,
   MdKeyboardArrowDown,
   MdKeyboardArrowUp,
 } from "react-icons/md";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { contextActions } from "store/context";
 
 export default function GetirKategori() {
+  let isBasket = true;
+  const state = useSelector((state) => state);
+  const dispatch = useDispatch();
+  const basket = state.context.basket;
   const [choice, setChoice] = React.useState([
     false,
     false,
@@ -65,7 +70,7 @@ export default function GetirKategori() {
       },
     ],
   };
-  const state = useSelector((state) => state);
+
   const categoriesItem = state.context.categories;
   const newItem = state.context.newItem;
   const indirim = state.context.indirim;
@@ -85,7 +90,8 @@ export default function GetirKategori() {
   const evcilHayvan = state.context.evcilHayvan;
   const bebek = state.context.bebek;
   const cinselSaglik = state.context.cinselSaglik;
-
+  const favorites = state.context.favorites;
+  console.log(favorites);
   if (
     !categoriesItem &&
     !newItem &&
@@ -262,7 +268,7 @@ export default function GetirKategori() {
               </a>
             ))}
           </div>
-          <div className="w-[663px] h-full">
+          <div className="md:w-[663px] h-full">
             {(choice[0]
               ? newItem
               : choice[1]
@@ -315,7 +321,19 @@ export default function GetirKategori() {
                       key={`#${items.name}+${index}`}
                       className="relative flex flex-col bg-primary-white justify-center items-center border-b border-r border-opacity-30  md:p-3 w-full md:w-30"
                     >
-                      <div className="flex absolute w-9 h-9 top-5 right-5 font-xl justify-center text-primary-brand-color items-center rounded-lg border z-10 bg-primary-white cursor-pointer">
+                      <div
+                        onClick={() => {
+                          dispatch(
+                            contextActions.addToBasket({
+                              id: items.id,
+                            })
+                          );
+
+                          console.log(state.context.basket);
+                          console.log(items.id);
+                        }}
+                        className="flex absolute w-9 h-9 top-5 right-5 font-xl justify-center text-primary-brand-color items-center rounded-lg border z-10 bg-primary-white cursor-pointer"
+                      >
                         <button>
                           <FiPlus />
                         </button>
@@ -344,7 +362,109 @@ export default function GetirKategori() {
               </>
             ))}
           </div>
-          <div className="md:w-[300px] hidden md:block">1</div>
+          <div className="md:w-[330px] hidden md:block">
+            <span className="text-sm font-semibold pl-4 pt-8">Sepetim</span>
+            <div className="container max-w-screen-xl mx-auto flex flex-col pt-3  md:z-50 w-[300px] ">
+              {basket.length <= 0 ? (
+                <div className="flex flex-col justify-center items-center w-full p-4 md:w-[300px] mx-auto border-2 rounded-lg border-sepet-border-renk">
+                  <img
+                    alt="noreferer"
+                    className="w-30 h-[120px] cursor-pointer "
+                    src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNzIiIGhlaWdodD0iODYiIHZpZXdCb3g9IjAgMCA3MiA4NiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgY2xpcC1wYXRoPSJ1cmwoI2NsaXAwKSI+CjxwYXRoIGQ9Ik0wLjUgMjVINzAuNzc1NlY4NS4yMzQ3SDAuNVYyNVoiIGZpbGw9IiNEQkRCRkYiLz4KPHBhdGggZD0iTTIzLjA4MzggMC4zMzMwMDhINDcuOTg3TDUyLjk3NTQgNS4zODlWMjUuNDMxNkw0Ny41NzgxIDI1LjQxNzRWNS4zNzgzNEgyMy41MjQ3VjI1LjQxNzRMMTguMDI3OCAyNS40MzE2VjUuMzc4MzRMMjMuMDgzOCAwLjMzMzAwOFoiIGZpbGw9IiNEQkRCRkYiLz4KPC9nPgo8ZGVmcz4KPGNsaXBQYXRoIGlkPSJjbGlwMCI+CjxyZWN0IHdpZHRoPSI3MSIgaGVpZ2h0PSI4NiIgZmlsbD0id2hpdGUiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAuNSkiLz4KPC9jbGlwUGF0aD4KPC9kZWZzPgo8L3N2Zz4K"
+                  />
+                  <p className="p-4 text-primary-brand-color">
+                    Sepetiniz şu an boş
+                  </p>
+                  <p className="p-2 text-brand-gray">
+                    Sipariş vermek için sepetinize ürün ekleyin
+                  </p>
+                </div>
+              ) : (
+                <div
+                  className={
+                    basket.length > 10
+                      ? "grid grid-cols-1  border-2 border-sepet-border-renk rounded-lg"
+                      : "grid grid-cols-1  border-2 border-sepet-border-renk rounded-lg"
+                  }
+                >
+                  {basket.map((items) => {
+                    return (
+                      <div
+                        key={items.id}
+                        className="relative flex flex-col bg-primary-white justify-center items-center border-b border-r border-opacity-30  md:p-3 w-full md:w-30"
+                      >
+                        <div className="flex flex-row gap-x-2 absolute top-5 right-5 justify-end">
+                          <div
+                            onClick={() =>
+                              dispatch(
+                                contextActions.deleteFromBasket({
+                                  id: items.id,
+                                })
+                              )
+                            }
+                            className="flex  w-9 h-9 font-xl justify-center text-primary-brand-color items-center rounded-lg border z-10 bg-primary-white cursor-pointer"
+                          >
+                            <button>
+                              <FiMinus />
+                            </button>
+                          </div>
+                          <div className="flex w-9 h-9 justify-center items-center   text-primary-brand-color  rounded-lg border z-10 bg-primary-white cursor-pointer">
+                            {items.count}
+                          </div>
+                          <div
+                            onClick={() =>
+                              dispatch(
+                                contextActions.addToBasket({ id: items.id })
+                              )
+                            }
+                            className="flex  w-9 h-9  font-xl justify-center text-primary-brand-color items-center rounded-lg border z-10 bg-primary-white cursor-pointer"
+                          >
+                            <button>
+                              <FiPlus />
+                            </button>
+                          </div>
+                        </div>
+                        <a
+                          href="https://github.com/serifcolakel"
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          <img
+                            alt="noreferer"
+                            className="w-30 h-[120px] cursor-pointer "
+                            src={
+                              items.squareThumbnailURL ||
+                              "http://add-urls.org/wp-content/themes/flymag/images/placeholder.png"
+                            }
+                          />
+                        </a>
+                        <div className="flex flex-col items-center bg-primary-white w-full md:w-[120px]">
+                          <p className="text-sm text-primary-brand-color font-semibold">
+                            {"₺" + items.price}
+                          </p>
+                          <p className="text-sm  text-center font-semibold">
+                            {items.name}
+                          </p>
+                          <p className="text-sm text-brand-gray text-center font-semibold">
+                            {items.shortDescription}
+                          </p>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              )}
+
+              <div className="flex justify-center items-center mt-4 text-xl">
+                <p className=" text-primary-brand-color font-semibold">
+                  {"₺" +
+                    parseFloat(
+                      basket.reduce((a, b) => a + b.price * b.count, 0)
+                    ).toFixed(2)}
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
