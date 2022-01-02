@@ -8,11 +8,11 @@ import {
   MdKeyboardArrowDown,
   MdKeyboardArrowUp,
 } from "react-icons/md";
+import { RiDeleteBin6Line } from "react-icons/ri";
 import { useDispatch, useSelector } from "react-redux";
 import { contextActions } from "store/context";
 
 export default function GetirKategori() {
-  let isBasket = true;
   const state = useSelector((state) => state);
   const dispatch = useDispatch();
   const basket = state.context.basket;
@@ -90,8 +90,8 @@ export default function GetirKategori() {
   const evcilHayvan = state.context.evcilHayvan;
   const bebek = state.context.bebek;
   const cinselSaglik = state.context.cinselSaglik;
-  const favorites = state.context.favorites;
-  console.log(favorites);
+  const Urunler = state.context.Urunler;
+
   if (
     !categoriesItem &&
     !newItem &&
@@ -106,7 +106,8 @@ export default function GetirKategori() {
     !teknoloji &&
     !evcilHayvan &&
     !bebek &&
-    !cinselSaglik
+    !cinselSaglik &&
+    !Urunler
   )
     return <Loading />;
 
@@ -146,7 +147,10 @@ export default function GetirKategori() {
               src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzQiIGhlaWdodD0iMzQiIHZpZXdCb3g9IjAgMCAzNCAzNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0yMy44MDY4IDEyLjcwMDFDMjMuNjY2OCAxMi41NTU1IDIzLjQ2OTMgMTIuNDczOSAyMy4yNjIzIDEyLjQ3MzlIMjMuMjYwOEwxMC43MzYzIDEyLjQ5ODlDMTAuNTI4NSAxMi40OTk2IDEwLjMzMTEgMTIuNTgyIDEwLjE5MTggMTIuNzI3M0MxMC4wNTE4IDEyLjg3MTkgOS45ODQwMyAxMy4wNjU4IDEwLjAwMzIgMTMuMjYxMkwxMC45NDA0IDIyLjQ1NTZDMTAuOTYyNSAyMy42NjQ1IDEyLjA3NTEgMjUuMDAwMiAxMy41NTgzIDI1LjAwMDJIMjAuNDUyQzIxLjg1NzkgMjUuMDAwMiAyMy4wNDc4IDIzLjkyNDQgMjMuMDY5OSAyMi42NDMxTDIzLjk5NjkgMTMuMjMzM0MyNC4wMTYgMTMuMDM3OSAyMy45NDY4IDEyLjg0NDcgMjMuODA2OCAxMi43MDAxWiIgZmlsbD0iIzVEM0VCQyIvPgo8cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTE5LjEgMTQuNDk5MVYxMS41MjcxQzE5LjEgMTAuMjg4IDE4LjE3ODEgOS4zMTgwNiAxNyA5LjMxODA2QzE1LjgyMTkgOS4zMTgwNiAxNC45IDEwLjI4OCAxNC45IDExLjUyNzFWMTQuNDk5MUMxNC45IDE0Ljg2MjkgMTQuNTg3MSAxNS4xNTgxIDE0LjIgMTUuMTU4MUMxMy44MTI5IDE1LjE1ODEgMTMuNSAxNC44NjI5IDEzLjUgMTQuNDk5MVYxMS41MjcxQzEzLjUgOS41NDk1OCAxNS4wMzU4IDguMDAwMTggMTcgOC4wMDAxOEMxOC45NjQyIDguMDAwMTggMjAuNSA5LjU0OTU4IDIwLjUgMTEuNTI3MVYxNC40OTkxQzIwLjUgMTQuODYyOSAyMC4xODcxIDE1LjE1ODEgMTkuOCAxNS4xNTgxQzE5LjQxMjkgMTUuMTU4MSAxOS4xIDE0Ljg2MjkgMTkuMSAxNC40OTkxWiIgZmlsbD0iI0ZGRDMwMCIvPgo8L3N2Zz4K"
             />
             <span className="bg-[#f3f0fe] w-[82px] h-full rounded-r-md flex items-center justify-center text-primary-brand-color font-bold text-[18px] ">
-              ₺60,80
+              {"₺" +
+                parseFloat(
+                  basket.reduce((a, b) => a + b.price * b.count, 0)
+                ).toFixed(2)}
             </span>
           </div>
         </div>
@@ -197,7 +201,7 @@ export default function GetirKategori() {
       </div>
       <div className="  bg-[#fafafa] py-6 pt-8  ">
         <div className=" max-w-screen-xl mx-auto flex flex-row  gap-x-4 ">
-          <div className="sticky top-[60px] w-1/2 md:w-[240px] overflow-auto h-[80vh] no-scrollbar bg-white rounded-lg flex flex-col">
+          <div className="sticky top-[60px] w-full md:w-[240px] overflow-auto h-[80vh] no-scrollbar bg-white rounded-lg flex flex-col">
             <span className=" text-sm font-semibold bg-[#fafafa] pb-4">
               Kategoriler
             </span>
@@ -311,7 +315,7 @@ export default function GetirKategori() {
                 <span
                   id={items.name}
                   key={`#${items.name}+${index}`}
-                  className=" text-sm font-semibold bg-[#fafafa] pt-12 "
+                  className=" text-sm font-semibold bg-[#fafafa] md:pt-12 pt-16 "
                 >
                   {items.name}
                 </span>
@@ -328,9 +332,6 @@ export default function GetirKategori() {
                               id: items.id,
                             })
                           );
-
-                          console.log(state.context.basket);
-                          console.log(items.id);
                         }}
                         className="flex absolute w-9 h-9 top-5 right-5 font-xl justify-center text-primary-brand-color items-center rounded-lg border z-10 bg-primary-white cursor-pointer"
                       >
@@ -362,7 +363,7 @@ export default function GetirKategori() {
               </>
             ))}
           </div>
-          <div className="md:w-[330px] hidden md:block">
+          <div className="md:w-[330px] hidden md:block sticky top-[60px]  h-[80vh] ">
             <span className="text-sm font-semibold pl-4 pt-8">Sepetim</span>
             <div className="container max-w-screen-xl mx-auto flex flex-col pt-3  md:z-50 w-[300px] ">
               {basket.length <= 0 ? (
@@ -382,18 +383,18 @@ export default function GetirKategori() {
               ) : (
                 <div
                   className={
-                    basket.length > 10
-                      ? "grid grid-cols-1  border-2 border-sepet-border-renk rounded-lg"
-                      : "grid grid-cols-1  border-2 border-sepet-border-renk rounded-lg"
+                    basket.length > 7
+                      ? "grid grid-cols-1  border-2 border-sepet-border-renk rounded-lg overflow-scroll  no-scrollbar h-[70vh] "
+                      : "grid grid-cols-1  border-2 border-sepet-border-renk rounded-lg overflow-scroll  no-scrollbar h-auto"
                   }
                 >
                   {basket.map((items) => {
                     return (
                       <div
                         key={items.id}
-                        className="relative flex flex-col bg-primary-white justify-center items-center border-b border-r border-opacity-30  md:p-3 w-full md:w-30"
+                        className="relative flex flex-col bg-primary-white justify-start items-start border-b border-r border-opacity-30  md:p-3 w-full md:w-30"
                       >
-                        <div className="flex flex-row gap-x-2 absolute top-5 right-5 justify-end">
+                        <div className="flex flex-row absolute top-5 right-5 justify-end">
                           <div
                             onClick={() =>
                               dispatch(
@@ -402,13 +403,17 @@ export default function GetirKategori() {
                                 })
                               )
                             }
-                            className="flex  w-9 h-9 font-xl justify-center text-primary-brand-color items-center rounded-lg border z-10 bg-primary-white cursor-pointer"
+                            className="flex  w-9 h-9 font-xl justify-center text-primary-brand-color items-center rounded-l-lg border z-10 bg-primary-white cursor-pointer"
                           >
                             <button>
-                              <FiMinus />
+                              {items.count > 1 ? (
+                                <FiMinus />
+                              ) : (
+                                <RiDeleteBin6Line />
+                              )}
                             </button>
                           </div>
-                          <div className="flex w-9 h-9 justify-center items-center   text-primary-brand-color  rounded-lg border z-10 bg-primary-white cursor-pointer">
+                          <div className="flex w-8 h-8 justify-center items-center font-extrabold  bg-primary-brand-color mt-[1px]  text-white border z-10  cursor-pointer">
                             {items.count}
                           </div>
                           <div
@@ -417,35 +422,20 @@ export default function GetirKategori() {
                                 contextActions.addToBasket({ id: items.id })
                               )
                             }
-                            className="flex  w-9 h-9  font-xl justify-center text-primary-brand-color items-center rounded-lg border z-10 bg-primary-white cursor-pointer"
+                            className="flex  w-9 h-9  font-xl justify-center text-primary-brand-color items-center rounded-r-lg border z-10 bg-primary-white cursor-pointer"
                           >
                             <button>
                               <FiPlus />
                             </button>
                           </div>
                         </div>
-                        <a
-                          href="https://github.com/serifcolakel"
-                          target="_blank"
-                          rel="noreferrer"
-                        >
-                          <img
-                            alt="noreferer"
-                            className="w-30 h-[120px] cursor-pointer "
-                            src={
-                              items.squareThumbnailURL ||
-                              "http://add-urls.org/wp-content/themes/flymag/images/placeholder.png"
-                            }
-                          />
-                        </a>
-                        <div className="flex flex-col items-center bg-primary-white w-full md:w-[120px]">
+
+                        <div className="flex flex-col items-start bg-primary-white w-[140px] overflow-visible ">
+                          <p className="text-sm  font-semibold">{items.name}</p>
                           <p className="text-sm text-primary-brand-color font-semibold">
                             {"₺" + items.price}
                           </p>
-                          <p className="text-sm  text-center font-semibold">
-                            {items.name}
-                          </p>
-                          <p className="text-sm text-brand-gray text-center font-semibold">
+                          <p className="text-sm text-brand-gray  font-semibold">
                             {items.shortDescription}
                           </p>
                         </div>
@@ -454,15 +444,19 @@ export default function GetirKategori() {
                   })}
                 </div>
               )}
-
-              <div className="flex justify-center items-center mt-4 text-xl">
-                <p className=" text-primary-brand-color font-semibold">
-                  {"₺" +
-                    parseFloat(
-                      basket.reduce((a, b) => a + b.price * b.count, 0)
-                    ).toFixed(2)}
-                </p>
-              </div>
+              {basket.length >= 1 && (
+                <div className="flex justify-between items-center mx-auto w-[248px] h-12 mt-4 text-xl hover:border-l-[#7849f7] rounded-lg border-2 border-primary-brand-color ">
+                  <button className="w-[155px] h-[48px] bg-primary-brand-color hover:bg-[#7849f7] rounded-l-md text-white">
+                    Sepete Git
+                  </button>
+                  <p className=" text-primary-brand-color w-[93px] font-semibold text-center">
+                    {"₺" +
+                      parseFloat(
+                        basket.reduce((a, b) => a + b.price * b.count, 0)
+                      ).toFixed(2)}
+                  </p>
+                </div>
+              )}
             </div>
           </div>
         </div>

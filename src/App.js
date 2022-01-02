@@ -26,6 +26,7 @@ import {
   getEvcilHayvan,
   getBebek,
   getCinselSaglik,
+  getUrunler,
 } from "./store/actions";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Footer from "components/Footer";
@@ -40,6 +41,7 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    dispatch(getUrunler());
     dispatch(getCinselSaglik());
     dispatch(getBebek());
     dispatch(getEvcilHayvan());

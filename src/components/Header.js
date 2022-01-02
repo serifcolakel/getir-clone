@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import { BiGlobe } from "react-icons/bi";
 import { FaUserAlt, FaUserPlus } from "react-icons/fa";
-import { RiShoppingBasketFill } from "react-icons/ri";
+import { RiDeleteBin6Line, RiShoppingBasketFill } from "react-icons/ri";
 import { FiMinus, FiPlus } from "react-icons/fi";
+import { AiOutlineClose } from "react-icons/ai";
+
 import { useSelector, useDispatch } from "react-redux";
 import { contextActions } from "store/context";
-
 export default function Header() {
   const state = useSelector((state) => state);
   const dispatch = useDispatch();
@@ -90,8 +91,14 @@ export default function Header() {
           </a>
         </nav>
         {!open ? null : (
-          <div className="md:flex md:absolute md:top-12 md:right-1/4 w-auto md:p-8 mx-auto bg-red-50  md:z-50 items-center justify-center">
+          <div className="md:flex md:absolute md:top-[50px] rounded-lg shadow-lg md:right-1/4 w-auto md:p-8 mx-auto bg-white  md:z-50 items-center justify-center">
             <div className="container max-w-screen-xl mx-auto flex flex-col pt-8 md:z-50 ">
+              <button
+                className="absolute right-9 top-4 text-primary-brand-color"
+                onClick={() => setOpen(!open)}
+              >
+                <AiOutlineClose size={25} />
+              </button>
               <span className="text-sm font-semibold pb-1 pt-2">Sepetim</span>
               {basket.length <= 0 ? (
                 <div className="flex flex-col justify-center items-center w-full p-4 md:w-[500px] mx-auto border-2 rounded-lg border-sepet-border-renk">
@@ -119,7 +126,7 @@ export default function Header() {
                     return (
                       <div
                         key={items.id}
-                        className="relative flex flex-col bg-primary-white justify-center items-center border-b border-r border-opacity-30  md:p-3 w-full md:w-30"
+                        className="relative  flex flex-col bg-primary-white justify-center items-center border-b border-r border-opacity-30  md:p-3 w-full md:w-30"
                       >
                         <div className="flex flex-row gap-x-2 absolute top-5 right-5 justify-end">
                           <div
@@ -133,7 +140,11 @@ export default function Header() {
                             className="flex w-7 h-7 font-xl justify-center text-primary-brand-color items-center rounded-lg border z-10 bg-primary-white cursor-pointer"
                           >
                             <button>
-                              <FiMinus />
+                              {items.count > 1 ? (
+                                <FiMinus />
+                              ) : (
+                                <RiDeleteBin6Line />
+                              )}
                             </button>
                           </div>
                           <div className="flex w-7 h-7 justify-center items-center   text-primary-brand-color  rounded-lg border z-10 bg-primary-white">
@@ -185,8 +196,11 @@ export default function Header() {
                 </div>
               )}
 
-              <div className="flex justify-center items-center mt-4 text-xl">
-                <p className=" text-primary-brand-color font-semibold">
+              <div className="flex justify-betweeb items-center mx-auto w-[248px] h-10 mt-4 text-xl hover:border-l-[#7849f7] rounded-lg border-2 border-primary-brand-color ">
+                <button className="w-[155px] h-[40px] bg-primary-brand-color hover:bg-[#7849f7] rounded-l-md text-white">
+                  Sepete Git
+                </button>
+                <p className=" text-primary-brand-color w-[93px] font-semibold text-center">
                   {"₺" +
                     parseFloat(
                       basket.reduce((a, b) => a + b.price * b.count, 0)

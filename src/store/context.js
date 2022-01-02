@@ -26,6 +26,7 @@ let initialState = {
   evcilHayvan: [],
   bebek: [],
   cinselSaglik: [],
+  Urunler: [],
   isLoading: false,
   message: "",
 };
@@ -38,6 +39,9 @@ const contextSlice = createSlice({
     },
     setFavorites: (state, action) => {
       state.favorites = action.payload.favorites;
+    },
+    setUrunler: (state, action) => {
+      state.Urunler = action.payload.Urunler;
     },
     setCards: (state, action) => {
       state.cards = action.payload.cards;
@@ -114,7 +118,7 @@ const contextSlice = createSlice({
       );
       if (isAdded.length === 0) {
         let product = {
-          ...state.favorites.find((item) => item.id === action.payload.id),
+          ...state.Urunler.find((item) => item.id === action.payload.id),
         };
         product.count++;
         state.basket = [...state.basket, product];

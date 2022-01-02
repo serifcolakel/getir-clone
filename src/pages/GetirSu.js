@@ -15,6 +15,7 @@ export default function Water() {
   const getirSu = cards.getirSu;
   const sliderData = state.context.sliderData;
   const suData = sliderData.suData;
+
   const settings = {
     dots: false,
     infinite: true,
@@ -89,7 +90,7 @@ export default function Water() {
         </div>
       </div>
       <Campaings settings={settings} name="suCampaings" />
-      <Favorites data={suData} isBasket={true} />
+      <Favorites data={suData} />
       <MobileApp />
       <Cards data={getirSu} />
     </>

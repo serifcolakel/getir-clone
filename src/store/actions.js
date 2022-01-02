@@ -213,3 +213,12 @@ export const getEvYasam = () => {
     dispatch(contextActions.setEvYasam({ evYasam: data.data }));
   };
 };
+
+export const getUrunler = () => {
+  return async (dispatch) => {
+    let data = await axios.get(
+      "https://getir-api-clone.herokuapp.com/api/urunler"
+    );
+    dispatch(contextActions.setUrunler({ Urunler: data.data }));
+  };
+};

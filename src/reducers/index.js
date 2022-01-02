@@ -21,6 +21,7 @@ const INITIAL_STATE = {
   evYasam: [],
   teknoloji: [],
   bebek: [],
+  Urunler: [],
   evcilHayvan: [],
   cinselSaglik: [],
   isLoading: false,
@@ -36,6 +37,10 @@ export const reducer = (state = INITIAL_STATE, action) => {
     case "GET_CATEGORIES_SUCCESS":
       return { ...state, categories: action.payload, isLoading: true };
     case "GET_CATEGORIES_ERROR":
+      return { ...state, message: action.payload, isLoading: false };
+    case "GET_URUNLER_SUCCESS":
+      return { ...state, Urunler: action.payload, isLoading: true };
+    case "GET_URUNLER_ERROR":
       return { ...state, message: action.payload, isLoading: false };
     case "GET_CARDS_SUCCESS":
       return { ...state, cards: action.payload, isLoading: true };
