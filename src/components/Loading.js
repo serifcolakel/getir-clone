@@ -11,7 +11,6 @@ const style = {
   width: "50%",
   height: "50%",
   backgroundColor: "#fff",
-
   boxShadow: 24,
   p: 4,
 };
@@ -28,10 +27,10 @@ export default function Loading() {
       }}
     >
       <Box sx={style} className="!border-0">
-        <div className="flex">
-          <div className="loading-ripple w-full  flex items-center mr-8 ">
-            <div className=""></div>
-            <div className="mb-4"></div>
+        <div className="flex ">
+          <div className="loading-ripple w-full  flex items-center md:mr-8">
+            <div className="md:mt-0 md:-ml-0  mt-16 -ml-6"></div>
+            <div className="md:mt-0 md:-ml-0 mt-16 -ml-6"></div>
           </div>
         </div>
       </Box>

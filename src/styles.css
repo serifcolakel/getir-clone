@@ -830,6 +830,30 @@ html,
   margin-bottom: 2rem;
 }
 
+.mr-0 {
+  margin-right: 0px;
+}
+
+.ml-4 {
+  margin-left: 1rem;
+}
+
+.mt-16 {
+  margin-top: 4rem;
+}
+
+.mr-6 {
+  margin-right: 1.5rem;
+}
+
+.ml-6 {
+  margin-left: 1.5rem;
+}
+
+.-ml-6 {
+  margin-left: -1.5rem;
+}
+
 .flex {
   display: flex;
 }
@@ -2047,6 +2071,14 @@ html,
 
   .md\:ml-4 {
     margin-left: 1rem;
+  }
+
+  .md\:mr-8 {
+    margin-right: 2rem;
+  }
+
+  .md\:-ml-0 {
+    margin-left: 0px;
   }
 
   .md\:block {
