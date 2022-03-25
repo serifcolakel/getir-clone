@@ -14,9 +14,9 @@ export default function Favorites({ data }) {
       <div className="container max-w-screen-xl mx-auto flex flex-col">
         <span className="text-sm font-semibold pb-1">Favoriler</span>
         <div className="grid grid-cols-3 md:grid-cols-4 xl:grid-cols-5 grid-rows-2">
-          {(data ? data : favsList).map((items) => (
+          {(data ? data : favsList).map((items, index) => (
             <div
-              key={items.id}
+              key={`#${items.name}+${index}`}
               className="relative flex flex-col bg-primary-white justify-center items-center border-b border-r border-opacity-30  md:p-3 w-full md:w-30"
             >
               <div
