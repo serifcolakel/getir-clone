@@ -24,7 +24,9 @@
     scrollbar-width: none; /* Firefox */
   }
 }
-
+.red {
+  background-color: red;
+}
 .flag-select {
   @apply !pb-0;
 }
@@ -71,4 +73,7 @@
     height: 72px;
     opacity: 0.1;
   }
+}
+.MuiCircularProgress-colorPrimary {
+  color: #ffd300;
 }
