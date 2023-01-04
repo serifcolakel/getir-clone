@@ -22,13 +22,7 @@ export default function Campaings({ settings, name, title = false }) {
 
         <Slider className="-mx-2 px-2" {...settings}>
           {camps.map((x, i) => (
-            <div
-              key={i}
-              className="md:pr-4 md:pt-4 cursor-pointer"
-              onClick={() => {
-                console.log(x.webUrl);
-              }}
-            >
+            <div key={i} className="md:pr-4 md:pt-4 cursor-pointer">
               <img alt="noreferer" className="md:rounded-lg" src={x.imgUrl} />
             </div>
           ))}

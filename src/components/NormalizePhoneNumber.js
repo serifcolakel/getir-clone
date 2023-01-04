@@ -22,8 +22,17 @@ export default function NormalizePhoneNumber() {
     US: "+1",
     TR: "+90",
     DE: "+50",
-    IT: "+1",
+    FR: "+33",
+    GB: "+44",
+    IT: "+39",
+    ES: "+34",
+    CA: "+1",
+    AU: "+61",
+    NZ: "+64",
+    BR: "+55",
+    RU: "+7",
   };
+  const [phone, setPhone] = useState("");
   return (
     <div className="flex flex-col mx-auto gap-y-4 w-full">
       <div className="flex gap-x-2">
@@ -42,15 +51,20 @@ export default function NormalizePhoneNumber() {
         >
           <input
             inputMode="numeric"
-            type="tel"
             maxLength="13"
             autoComplete="cc-number"
-            name="phone"
+            name="number"
+            value={phone}
             onChange={(event) => {
               const { value } = event.target;
-              event.target.value = normalizedPhoneNumber(value);
+              let reg = /^[0-9]$/;
+              if (!reg.test(value)) {
+                const send = event.target.value.replace(/[^0-9]/g, "");
+                event.target.value = normalizedPhoneNumber(send);
+                setPhone(phones[selected] + " " + event.target.value);
+              }
             }}
-            id="phone"
+            id="number"
             required
             className="h-14 px-4 border-2 border-gray-200 rounded w-full transition-colors group-hover:border-primary-brand-color outline-none peer text-sm pt-2"
           />

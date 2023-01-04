@@ -17,10 +17,10 @@ const content = [
 ];
 export default function MobileApp() {
   return (
-    <div className="pt-10 pb-6 bg-gray-background ">
+    <div className="pt-10 pb-6  ">
       <div className="container md:max-w-screen-xl mx-auto flex flex-col bg-primary-brand-color md:rounded-xl bg-mobile-app ">
         <div className="flex justify-between items-center	 relative  overflow-hidden h-[312px] ">
-          <div className="pl-4 md:pl-8 pb-6 pt-8 flex flex-col justify-start items-start  ">
+          <div className="pl-4 md:pl-8 pb-6 pt-8 flex flex-col justify-start items-start z-50">
             <h2 className="font-bold text-3xl pb-4 text-white font-sans leading-8">
               Getir'i indirin!
             </h2>
@@ -42,7 +42,7 @@ export default function MobileApp() {
           <img
             className="pt-6 hidden md:block md:absolute  md:object-contain md:-right-1/3 md:top-0 lg:object-none lg:right-0"
             alt="noreferrer"
-            src="https://getir.com/_next/static/images/phoneLanding-88c033545710c4808054072689e187d7.png"
+            src="https://cdn.getir.com/getirweb-images/common/illustration/doodle.png"
           />
         </div>
       </div>

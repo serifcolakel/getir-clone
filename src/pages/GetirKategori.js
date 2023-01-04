@@ -162,7 +162,7 @@ export default function GetirKategori() {
         <div className="w-full md:w-1/2 md:max-w-screen-xl flex flex-row items-center justify-center h-20 md:ml-4 ">
           <div className="flex flex-row items-center mx-4 bg-[#fafafa] ">
             <img
-              src="https://getir.com/_next/static/images/bag-3312fc73968345e26f3f610d4f4440c5.svg"
+              src="https://getir.com/_next/static/images/bag-c43c3b2588349bace63586b13e84ee05.svg"
               loading="lazy"
               alt="canta-getir"
             />
@@ -177,7 +177,7 @@ export default function GetirKategori() {
           </div>
           <div className="flex flex-row items-center mx-4 bg-[#fafafa] ">
             <img
-              src="https://getir.com/_next/static/images/courier-pin-ff44cc9dd5c2b3c566e2c422a7e6a2f8.svg"
+              src="https://getir.com/_next/static/images/courier-pin-d5fe30611fa28465f3cb9840e7807bcc.svg"
               loading="lazy"
               alt="motor-getir"
             />
@@ -195,7 +195,7 @@ export default function GetirKategori() {
           <img
             className="h-20 w-full object-cover"
             loading="lazy"
-            src="https://getir.com/_next/static/images/static-map-8c6fe0d27804677ece0c96d208c219ba.png"
+            src="https://cdn.getir.com/getirweb-images/common/static-map.png"
             alt="map"
           />
         </div>
@@ -318,7 +318,7 @@ export default function GetirKategori() {
               ? cinselSaglik
               : newItem
             ).map((items, index) => (
-              <>
+              <div key={index}>
                 <span
                   id={items.name}
                   key={`#${items.name}+${index}`}
@@ -368,7 +368,7 @@ export default function GetirKategori() {
                     </div>
                   ))}
                 </div>
-              </>
+              </div>
             ))}
           </div>
           <div className="md:w-[330px] hidden md:block sticky top-[60px]  h-[80vh] ">

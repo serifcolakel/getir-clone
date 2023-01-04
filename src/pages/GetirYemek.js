@@ -105,7 +105,7 @@ export default function Food() {
         <img
           alt="partner-food"
           className="hidden md:flex w-[216px] h-[112px]"
-          src="https://getir.com/_next/static/images/partners-main-9aacd2252ceac357cf7d7b48daec30e1.jpg"
+          src="https://getir.com/_next/static/images/intro-foods-17936a3941c6c42663b203911b0e744d.svg"
         />
         <div className="flex flex-col gap-y-4 ">
           <span className="text-brand-color font-bold text-2xl">

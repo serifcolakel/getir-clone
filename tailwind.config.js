@@ -18,9 +18,9 @@ module.exports = {
       },
       backgroundImage: (theme) => ({
         "partner-food":
-          "url('https://getir.com/_next/static/images/partners-background-e516806adcf95650572224b0c2e681f3.jpg')",
+          "url('https://getir.com/_next/static/images/intro-foods-17936a3941c6c42663b203911b0e744d.svg')",
         "mobile-app":
-          "url('https://getir.com/_next/static/images/doodle-d659f9f1fd505c811c2331fe3ffddd5f.png')",
+          "url('https://cdn.getir.com/getirweb-images/common/illustration/doodle.png')",
       }),
     },
     variants: {

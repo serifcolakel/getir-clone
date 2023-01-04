@@ -4,7 +4,7 @@ import { contextActions } from "./context";
 export const getCategories = () => {
   return async (dispatch) => {
     let data = await axios.get(
-      "https://getir-api-clone.herokuapp.com/api/categories"
+      "https://getir-clone-api.onrender.com/api/categories"
     );
     dispatch(contextActions.setCategories({ categories: data.data }));
   };
@@ -13,7 +13,7 @@ export const getCategories = () => {
 export const getFavorites = () => {
   return async (dispatch) => {
     let data = await axios.get(
-      "https://getir-api-clone.herokuapp.com/api/favorite"
+      "https://getir-clone-api.onrender.com/api/favorite"
     );
     dispatch(contextActions.setFavorites({ favorites: data.data }));
   };
@@ -22,7 +22,7 @@ export const getFavorites = () => {
 export const getCards = () => {
   return async (dispatch) => {
     let data = await axios.get(
-      "https://getir-api-clone.herokuapp.com/api/cards"
+      "https://getir-clone-api.onrender.com/api/cards"
     );
     dispatch(contextActions.setCards({ cards: data.data }));
   };
@@ -31,7 +31,7 @@ export const getCards = () => {
 export const getSliderData = () => {
   return async (dispatch) => {
     let data = await axios.get(
-      "https://getir-api-clone.herokuapp.com/api/sliderData"
+      "https://getir-clone-api.onrender.com/api/sliderData"
     );
     dispatch(contextActions.setSliderData({ sliderData: data.data }));
   };
@@ -40,7 +40,7 @@ export const getSliderData = () => {
 export const getFooterLink = () => {
   return async (dispatch) => {
     let data = await axios.get(
-      "https://getir-api-clone.herokuapp.com/api/footerLink"
+      "https://getir-clone-api.onrender.com/api/footerLink"
     );
     dispatch(contextActions.setFooterLink({ footerLink: data.data }));
   };
@@ -49,7 +49,7 @@ export const getFooterLink = () => {
 export const getCampaings = () => {
   return async (dispatch) => {
     let data = await axios.get(
-      "https://getir-api-clone.herokuapp.com/api/campaings"
+      "https://getir-clone-api.onrender.com/api/campaings"
     );
     dispatch(contextActions.setCampaings({ campaings: data.data }));
   };
@@ -58,7 +58,7 @@ export const getCampaings = () => {
 export const getNewItem = () => {
   return async (dispatch) => {
     let data = await axios.get(
-      "https://getir-api-clone.herokuapp.com/api/newItem"
+      "https://getir-clone-api.onrender.com/api/newItem"
     );
     dispatch(contextActions.setNewItem({ newItem: data.data }));
   };
@@ -67,7 +67,7 @@ export const getNewItem = () => {
 export const getIndirim = () => {
   return async (dispatch) => {
     let data = await axios.get(
-      "https://getir-api-clone.herokuapp.com/api/discount"
+      "https://getir-clone-api.onrender.com/api/discount"
     );
     dispatch(contextActions.setIndirim({ indirim: data.data }));
   };
@@ -76,7 +76,7 @@ export const getIndirim = () => {
 export const getSuIcecek = () => {
   return async (dispatch) => {
     let data = await axios.get(
-      "https://getir-api-clone.herokuapp.com/api/suicecek"
+      "https://getir-clone-api.onrender.com/api/suicecek"
     );
     dispatch(contextActions.setSuIcecek({ suIcecek: data.data }));
   };
@@ -85,7 +85,7 @@ export const getSuIcecek = () => {
 export const getMeyveSebze = () => {
   return async (dispatch) => {
     let data = await axios.get(
-      "https://getir-api-clone.herokuapp.com/api/meyvesebze"
+      "https://getir-clone-api.onrender.com/api/meyvesebze"
     );
     dispatch(contextActions.setMeyveSebze({ MeyveSebze: data.data }));
   };
@@ -94,7 +94,7 @@ export const getMeyveSebze = () => {
 export const getFirindan = () => {
   return async (dispatch) => {
     let data = await axios.get(
-      "https://getir-api-clone.herokuapp.com/api/firindan"
+      "https://getir-clone-api.onrender.com/api/firindan"
     );
     dispatch(contextActions.setFirindan({ Firindan: data.data }));
   };
@@ -103,7 +103,7 @@ export const getFirindan = () => {
 export const getTemelGida = () => {
   return async (dispatch) => {
     let data = await axios.get(
-      "https://getir-api-clone.herokuapp.com/api/temelgida"
+      "https://getir-clone-api.onrender.com/api/temelgida"
     );
     dispatch(contextActions.setTemelGida({ temelGida: data.data }));
   };
@@ -112,7 +112,7 @@ export const getTemelGida = () => {
 export const getAtistirmalik = () => {
   return async (dispatch) => {
     let data = await axios.get(
-      "https://getir-api-clone.herokuapp.com/api/atistirmalik"
+      "https://getir-clone-api.onrender.com/api/atistirmalik"
     );
     dispatch(contextActions.setAtistirmalik({ atistirmalik: data.data }));
   };
@@ -121,7 +121,7 @@ export const getAtistirmalik = () => {
 export const getDondurma = () => {
   return async (dispatch) => {
     let data = await axios.get(
-      "https://getir-api-clone.herokuapp.com/api/dondurma"
+      "https://getir-clone-api.onrender.com/api/dondurma"
     );
     dispatch(contextActions.setDondurma({ dondurma: data.data }));
   };
@@ -129,7 +129,7 @@ export const getDondurma = () => {
 export const getEvcilHayvan = () => {
   return async (dispatch) => {
     let data = await axios.get(
-      "https://getir-api-clone.herokuapp.com/api/evcilHayvan"
+      "https://getir-clone-api.onrender.com/api/evcilHayvan"
     );
     dispatch(contextActions.setEvcilHayvan({ evcilHayvan: data.data }));
   };
@@ -138,7 +138,7 @@ export const getEvcilHayvan = () => {
 export const getTeknoloji = () => {
   return async (dispatch) => {
     let data = await axios.get(
-      "https://getir-api-clone.herokuapp.com/api/teknoloji"
+      "https://getir-clone-api.onrender.com/api/teknoloji"
     );
     dispatch(contextActions.setTeknoloji({ teknoloji: data.data }));
   };
@@ -147,7 +147,7 @@ export const getTeknoloji = () => {
 export const getYiyecek = () => {
   return async (dispatch) => {
     let data = await axios.get(
-      "https://getir-api-clone.herokuapp.com/api/yiyecek"
+      "https://getir-clone-api.onrender.com/api/yiyecek"
     );
     dispatch(contextActions.setYiyecek({ yiyecek: data.data }));
   };
@@ -155,7 +155,7 @@ export const getYiyecek = () => {
 export const getBebek = () => {
   return async (dispatch) => {
     let data = await axios.get(
-      "https://getir-api-clone.herokuapp.com/api/bebek"
+      "https://getir-clone-api.onrender.com/api/bebek"
     );
     dispatch(contextActions.setBebek({ bebek: data.data }));
   };
@@ -164,7 +164,7 @@ export const getBebek = () => {
 export const getSutUrunleri = () => {
   return async (dispatch) => {
     let data = await axios.get(
-      "https://getir-api-clone.herokuapp.com/api/suturunleri"
+      "https://getir-clone-api.onrender.com/api/suturunleri"
     );
     dispatch(contextActions.setSutUrunleri({ sutUrunleri: data.data }));
   };
@@ -173,7 +173,7 @@ export const getSutUrunleri = () => {
 export const getCinselSaglik = () => {
   return async (dispatch) => {
     let data = await axios.get(
-      "https://getir-api-clone.herokuapp.com/api/cinselSaglik"
+      "https://getir-clone-api.onrender.com/api/cinselSaglik"
     );
     dispatch(contextActions.setCinselSaglik({ cinselSaglik: data.data }));
   };
@@ -182,7 +182,7 @@ export const getCinselSaglik = () => {
 export const getFitForm = () => {
   return async (dispatch) => {
     let data = await axios.get(
-      "https://getir-api-clone.herokuapp.com/api/fitform"
+      "https://getir-clone-api.onrender.com/api/fitform"
     );
     dispatch(contextActions.setFitForm({ fitForm: data.data }));
   };
@@ -191,7 +191,7 @@ export const getFitForm = () => {
 export const getKisiselBakim = () => {
   return async (dispatch) => {
     let data = await axios.get(
-      "https://getir-api-clone.herokuapp.com/api/kisiselbakim"
+      "https://getir-clone-api.onrender.com/api/kisiselbakim"
     );
     dispatch(contextActions.setKisiselBakim({ kisiselBakim: data.data }));
   };
@@ -199,7 +199,7 @@ export const getKisiselBakim = () => {
 export const getEvBakim = () => {
   return async (dispatch) => {
     let data = await axios.get(
-      "https://getir-api-clone.herokuapp.com/api/evbakim"
+      "https://getir-clone-api.onrender.com/api/evbakim"
     );
     dispatch(contextActions.setEvBakim({ evBakim: data.data }));
   };
@@ -208,7 +208,7 @@ export const getEvBakim = () => {
 export const getEvYasam = () => {
   return async (dispatch) => {
     let data = await axios.get(
-      "https://getir-api-clone.herokuapp.com/api/evyasam"
+      "https://getir-clone-api.onrender.com/api/evyasam"
     );
     dispatch(contextActions.setEvYasam({ evYasam: data.data }));
   };
@@ -217,7 +217,7 @@ export const getEvYasam = () => {
 export const getUrunler = () => {
   return async (dispatch) => {
     let data = await axios.get(
-      "https://getir-api-clone.herokuapp.com/api/urunler"
+      "https://getir-clone-api.onrender.com/api/urunler"
     );
     dispatch(contextActions.setUrunler({ Urunler: data.data }));
   };

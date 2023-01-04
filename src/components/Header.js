@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { BiGlobe } from "react-icons/bi";
 import { FaUserAlt, FaUserPlus } from "react-icons/fa";
 import { RiDeleteBin6Line, RiShoppingBasketFill } from "react-icons/ri";
@@ -12,9 +12,6 @@ export default function Header() {
   const dispatch = useDispatch();
   const [open, setOpen] = useState(false);
   const basket = state.context.basket;
-  useEffect(() => {
-    console.log(open ? "basket is opened" : "basket is closed");
-  }, [open]);
   return (
     <div className="sticky top-0 z-50 bg-brand-color md:pt-1">
       <div className="max-w-screen-xl mx-auto h-16 md:h-12 flex items-center justify-center md:justify-between ">

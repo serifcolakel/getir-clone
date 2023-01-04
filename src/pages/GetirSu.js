@@ -59,7 +59,7 @@ export default function Water() {
       <div className="relative h:auto md:h-[500px]  before:bg-gradient-to-r before:from-primary-brand-color before:to-trasnparent before:absolute before:inset-0 before:w-full before:h-full before:z-10">
         {sliderWidth >= 768 && (
           <img
-            src="https://getir.com/_next/static/images/water-1-293b9ae905fc9a13bd597a5512813e31.jpg"
+            src="https://cdn.getir.com/getirweb-images/common/hero-posters/water-1.jpg"
             alt="water-"
             className=" w-full h-[500px] object-cover"
           />

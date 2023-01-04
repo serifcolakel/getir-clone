@@ -1,11 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Slider from "react-slick";
 
 export default function SliderMultiple(props) {
   const [datas] = useState(props.data);
-  useEffect(() => {
-    console.log("Slider verisi degisti");
-  }, [datas]);
+  const [hasError, setHasError] = useState(false);
 
   function sliders() {
     return datas.map((data, index) => {
@@ -24,7 +22,8 @@ export default function SliderMultiple(props) {
             <img
               className={props.className}
               alt="noreferer"
-              src={data.imageURL}
+              onError={() => setHasError(true)}
+              src={hasError ? `https://cdn.getir.com/getirweb-images/common/hero-posters/getir-mainpage-${index+1}.jpg` : data.imageURL}
             />
           )}
           <p className="pl-2 pr-2 text-base truncate text-gray-500 font-semibold">
